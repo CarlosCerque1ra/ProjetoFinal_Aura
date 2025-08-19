@@ -1,6 +1,6 @@
-<h1>
-  <img src="[https://github.com/user-attachments/assets/0cae8ef0-ce87-4c49-adeb-8ce5f24d870c](https://lh3.googleusercontent.com/drive-storage/AJQWtBOK3Co4zMDApHnEQ6ZCzSSCjmsJXNlCa37kKBLuDffg_bc8FtDf1JF1dvr0LN_gNov1wpCInY3mb-0CXYyl9djQgsF9yUeQLVnX7AlMRSXKGaI=w1897-h877?auditContext=forDisplay)" width="50" /> Aura - Desenvolvimento de Sistemas
-</h1>
+
+
+<img width="30" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" /> **Aura - Desenvolvimento de Sistemas**
 
 
 A **Aura** é mais que uma empresa de desenvolvimento de sistemas:  
@@ -42,11 +42,10 @@ A **Aura** utiliza ferramentas modernas que garantem **organização, colaboraç
 <p align="center">
 <img width="400" height="500" alt="1" src="[https://github.com/user-attachments/assets/348a95df-e02b-4e23-af91-1864c855469f](https://lh3.googleusercontent.com/drive-storage/AJQWtBOK3Co4zMDApHnEQ6ZCzSSCjmsJXNlCa37kKBLuDffg_bc8FtDf1JF1dvr0LN_gNov1wpCInY3mb-0CXYyl9djQgsF9yUeQLVnX7AlMRSXKGaI=w1897-h877?auditContext=forDisplay)"/>
 
-<img width="400" height="500" alt="2" src="https://github.com/user-attachments/assets/fba613bb-f782-4304-9b99-bc4abd8c68e5" /> 
+<img width="400" height="877" alt="image" src="https://github.com/user-attachments/assets/199965bd-b48e-4f68-8a61-030d25dfe262" />
+<img width="400" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" />
 
-<img width="400" height="500" alt="4" src="https://github.com/user-attachments/assets/7cc8a3c6-e675-4e9e-9982-416161ca783a"/> 
 
-<img width="400" height="500" alt="5" src="https://github.com/user-attachments/assets/ed8fa641-394a-4f8d-8b2a-cf113e07dff7"/>
 </p>
 
 
