@@ -1,6 +1,6 @@
 
 
-<img width="30" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" /> **Aura - Desenvolvimento de Sistemas**
+<img width="30" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" /> **Aura - Desenvolvimento de Sistemas** (Empresa Fictícia)
 
 
 A **Aura** é mais que uma empresa de desenvolvimento de sistemas:  
