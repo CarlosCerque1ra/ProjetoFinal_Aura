@@ -41,8 +41,8 @@ A **Aura** utiliza ferramentas modernas que garantem **organização, colaboraç
 
 ## Tipografia e logos!!!
 <p align="center">
-<img width="465" height="492" alt="image" src="https://github.com/user-attachments/assets/dd3c9066-9be5-4fb7-bdf9-c333fc3c3964" />
-<img width="520" height="681" alt="image" src="https://github.com/user-attachments/assets/36281415-0d73-4508-bae2-ae529e159613" />
+<img width="400" height="492" alt="image" src="https://github.com/user-attachments/assets/dd3c9066-9be5-4fb7-bdf9-c333fc3c3964" />
+<img width="480" alt="image" src="https://github.com/user-attachments/assets/36281415-0d73-4508-bae2-ae529e159613" />
 </p>
 
 
