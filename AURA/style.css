@@ -1,0 +1,56 @@
+/* Reset */
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hero Section */
+.hero {
+  background: url('assets/hero-bg.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Service Cards */
+.service-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s, color 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: white;
+}
+
+body.dark-mode .navbar {
+  background: #1e1e1e !important;
+}
+
+body.dark-mode .service-card {
+  background: #1f1f1f;
+  color: white;
+}
+
+body.light-mode {
+  background: #ffffff;
+  color: black;
+}
+
+body.light-mode .navbar {
+  background: #f8f9fa !important;
+}
+
+body.light-mode .service-card {
+  background: white;
+  color: black;
+}

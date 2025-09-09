@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Tech</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo.png" alt="Aura Logo" height="30">
+        Aura Tech
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contatos">Contatos</a></li>
+          <li class="nav-item d-flex align-items-center">
+            <button id="themeToggle" class="btn btn-outline-light ms-3">🌙</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="sobre" class="hero d-flex align-items-center text-center text-light">
+    <div class="container">
+      <h1 class="display-4 fw-bold">SOBRE NÓS</h1>
+      <a href="#servicos" class="btn btn-primary btn-lg mt-3">Saiba Mais</a>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-5">SERVIÇOS</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img src="assets/services-bg.jpg" class="card-img-top" alt="Projeto Social">
+            <div class="card-body">
+              <h5 class="card-title">Projeto Social</h5>
+              <p class="card-text">Impactando comunidades com inovação.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img src="assets/services-bg.jpg" class="card-img-top" alt="Mural de Vagas">
+            <div class="card-body">
+              <h5 class="card-title">Mural de Vagas</h5>
+              <p class="card-text">Projeto em parceria com o SENAI.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card">
+            <img src="assets/services-bg.jpg" class="card-img-top" alt="Servhuem">
+            <div class="card-body">
+              <h5 class="card-title">Servhuem</h5>
+              <p class="card-text">Sistema de caixa acadêmico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contatos -->
+  <section id="contatos" class="py-5 bg-dark text-light">
+    <div class="container text-center">
+      <h2 class="mb-4">CONTATOS</h2>
+      <p><strong>Email:</strong> auratech@gmail.com</p>
+      <p><strong>Telefone:</strong> 4002-8922</p>
+      <p><strong>Instagram:</strong> @auratech</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-center text-light py-3">
+    <p>&copy; 2025 Aura Tech. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
