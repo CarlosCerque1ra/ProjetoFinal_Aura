@@ -1,77 +1,61 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-
-<img width="30" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" /> **Aura - Desenvolvimento de Sistemas** (Empresa Fictícia)
-
-
-A **Aura** é mais que uma empresa de desenvolvimento de sistemas:  
-é movida por **foco, determinação e paixão**.  
-
-Nosso propósito é criar **projetos criativos, modernos e funcionais**, transformando tecnologia em soluções eficazes que geram **impacto real e positivo na sociedade**.
-
----
-
-## 🚀 Nossos Diferenciais
-
-- **Inovação** – Soluções criativas para novos desafios.  
-- **Excelência** – Sistemas modernos e eficientes, com alta qualidade técnica.  
-- **Compromisso** – Parcerias sólidas e resultados consistentes.  
-
----
-
-## 🎯 Nossa Missão
-Transformar **desafios em soluções inteligentes**, sempre unindo criatividade e técnica para fortalecer negócios e gerar impacto positivo.
-
----
-
-## 🤝 Vamos construir juntos!
-Se você busca inovação, eficiência e resultados reais, a **Aura** é a parceira ideal para transformar sua ideia em realidade.
-
-## 🛠️ Tecnologias Utilizadas
-
-A **Aura** utiliza ferramentas modernas que garantem **organização, colaboração e qualidade** no desenvolvimento de cada projeto:
 <p align="center">
-  <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white" alt="Canva"/>
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma"/>
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  <img src="https://img.shields.io/badge/VSCode-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VSCode"/>
-  <img src="https://img.shields.io/badge/Microsoft_Word-2B579A?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Word"/>
-  <img src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white"/>
-
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Tipografia e logos!!!
-<p align="center">
-<img width="465" height="492" alt="image" src="https://github.com/user-attachments/assets/dd3c9066-9be5-4fb7-bdf9-c333fc3c3964" />
-<img width="520" height="681" alt="image" src="https://github.com/user-attachments/assets/36281415-0d73-4508-bae2-ae529e159613" />
-</p>
+## About Laravel
 
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-<hr>
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-# Sistema de Cadastro para a empresa SENAI<br>
-##### Atenção! esté trabalho é feito com carater educacional
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Introdução
-De acordo com a Pesquisa de Acompanhamento de Egressos (2022-2024), mais de 88% dos jovens aprendizes do Serviço Nacional de Aprendizagem Industrial (SENAI) conquistaram um emprego em até um ano após a conclusão do curso. Esse dado reforça a crescente demanda do mercado profissional por alunos formados pela instituição.Nesse cenário, facilitar o contato entre alunos e empresas torna-se essencial tanto para o desenvolvimento da carreira dos estudantes quanto para o fortalecimento das próprias empresas.
+## Learning Laravel
 
-Com o objetivo de apoiar os alunos em sua trajetória profissional e ampliar os índices de empregabilidade dos formandos do SENAI, a Aura. propõe a criação de uma nova página web para substituir a atual, que apresenta menor engajamento. A nova plataforma terá como foco tornar as vagas mais informativas, organizadas e acessíveis para os alunos, ao mesmo tempo em que facilita às empresas a busca por novos talentos.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-Assim, a iniciativa contribui não apenas para o sucesso dos estudantes e das empresas parceiras, mas também para o fortalecimento da imagem e do papel do SENAI como agente de conexão entre educação e mercado de trabalho, alinhado à missão da Aura. de desenvolver soluções tecnológicas que transformam desafios em oportunidades.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-## Problematica
-Apesar do avanço dos meios digitais de recrutamento, ainda persiste uma dificuldade significativa no alinhamento entre empresas e candidatos. Dados do IBGE (2024) apontam que a taxa de desemprego no Brasil é de 6,2%, o que representa milhões de pessoas em busca de oportunidades, muitas delas sem acesso sequer a entrevistas de emprego. Esse cenário evidencia dois problemas centrais: de um lado, empresas que encontram dificuldades para selecionar candidatos adequados ao perfil da vaga; de outro, trabalhadores que, mesmo qualificados, enfrentam barreiras no acesso a oportunidades pela ausência de canais eficazes de conexão.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Diante dessa realidade, o Mural de Vagas é proposto como solução para reduzir a distância entre oferta e demanda de trabalho, atuando como uma ferramenta que potencializa a visibilidade dos candidatos e aumenta a eficiência dos processos de recrutamento. Ao aproximar empregadores e profissionais, a iniciativa contribui para a inclusão de trabalhadores qualificados no mercado e otimiza a seleção de talentos pelas empresas, tornando o processo mais ágil, justo e acessível.
+## Laravel Sponsors
 
-## Primeiros passos
-Inicialmente, realizamos uma análise da tipografia da marca SENAI, bem como dos requisitos que devem ser atendidos na criação de uma nova página. O objetivo é que essa página funcione como uma ferramenta eficaz para que as empresas possam contratar alunos da instituição, ampliando sua visibilidade e fortalecendo a confiança no mercado, tanto nacional quanto internacional.
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
+### Premium Partners
 
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
+## Contributing
 
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
+## Code of Conduct
 
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
+## Security Vulnerabilities
 
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
 
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
