@@ -10,53 +10,76 @@
 </head>
 <body class="dark-mode">
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="assets/logo.png" alt="Aura Logo" height="30">
-        Aura Tech
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contatos">Contatos</a></li>
-          <li class="nav-item d-flex align-items-center">
-            <button id="themeToggle" class="btn btn-outline-light ms-3">🌙</button>
-          </li>
-        </ul>
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="assets/logo.png" alt="Aura Logo" height="35" class="me-2">
+      <span class="fw-bold">aura</span>
+    </a>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav gap-4">
+        <li class="nav-item"><a class="nav-link" href="#sobre">SOBRE NÓS</a></li> 
+        <li class="nav-item"><a class="nav-link" href="#servicos">SERVIÇOS</a></li> 
+        <li class="nav-item"><a class="nav-link" href="#contatos">CONTATOS</a></li>
+      </ul>
+    </div>
+
+    <!-- Botão Dark/Light Mode -->
+    <div class="d-flex align-items-center">
+      <button id="themeToggle" class="theme-switch"></button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- Seção Sobre Nós -->
+<section id="sobre" class="sobre-section d-flex align-items-center text-center">
+  <div class="container glass-box">
+    <h1 class="display-4 fw-bold">SOBRE NÓS</h1>
+  <button type="button" class="btn btn-glass" data-bs-toggle="modal" data-bs-target="#sobreModal">Saiba Mais</button>
+  </div>
+</section>
+
+<!-- Modal Saiba Mais -->
+<div class="modal fade" id="sobreModal" tabindex="-1" aria-labelledby="sobreModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content glass-box">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100 text-center" id="sobreModalLabel">SOBRE NÓS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>A Aura Tech é uma empresa focada em soluções inovadoras, tecnologia e transformação digital. Nosso objetivo é conectar pessoas e negócios através de projetos personalizados e eficientes.</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="sobre" class="hero d-flex align-items-center text-center text-light">
-    <div class="container">
-      <h1 class="display-4 fw-bold">SOBRE NÓS</h1>
-      <a href="#servicos" class="btn btn-primary btn-lg mt-3">Saiba Mais</a>
-    </div>
-  </section>
+  </div>
+</div>
 
   <!-- Serviços -->
-  <section id="servicos" class="py-5 text-center">
+  <section id="servicos" class="py-5 text-center mb-5">
     <div class="container">
-      <h2 class="mb-5">SERVIÇOS</h2>
+      <h2 id="h2" class="mb-5">SERVIÇOS</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card service-card">
-            <img src="assets/services-bg.jpg" class="card-img-top" alt="Projeto Social">
+            <img src="assets/servhub.png" class="card-img-top" alt="Projeto Social">
             <div class="card-body">
-              <h5 class="card-title">Projeto Social</h5>
-              <p class="card-text">Impactando comunidades com inovação.</p>
+              <h5 class="card-title">ServHub</h5>
+              <p class="card-text">Sistema de Cadastro.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card service-card">
-            <img src="assets/services-bg.jpg" class="card-img-top" alt="Mural de Vagas">
+            <img src="assets/services-bg.png" class="card-img-top" alt="Mural de Vagas">
             <div class="card-body">
               <h5 class="card-title">Mural de Vagas</h5>
               <p class="card-text">Projeto em parceria com o SENAI.</p>
@@ -65,21 +88,24 @@
         </div>
         <div class="col-md-4">
           <div class="card service-card">
-            <img src="assets/services-bg.jpg" class="card-img-top" alt="Servhuem">
+            <img src="assets/orofacial.png" class="card-img-top" alt="Servhuem">
             <div class="card-body">
-              <h5 class="card-title">Servhuem</h5>
-              <p class="card-text">Sistema de caixa acadêmico.</p>
+              <h5 class="card-title">Sistema de horários</h5>
+              <p class="card-text">Para uma marca já existente.</p>
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </section>
 
+
+
   <!-- Contatos -->
   <section id="contatos" class="py-5 bg-dark text-light">
     <div class="container text-center">
-      <h2 class="mb-4">CONTATOS</h2>
+      <h2 class="mb-5">CONTATOS</h2>
       <p><strong>Email:</strong> auratech@gmail.com</p>
       <p><strong>Telefone:</strong> 4002-8922</p>
       <p><strong>Instagram:</strong> @auratech</p>
