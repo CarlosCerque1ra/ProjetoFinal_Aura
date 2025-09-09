@@ -5,17 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Verifica se tem preferência salva
   if (localStorage.getItem("theme")) {
     body.className = localStorage.getItem("theme");
-    toggleButton.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
   }
 
   toggleButton.addEventListener("click", () => {
     if (body.classList.contains("dark-mode")) {
       body.classList.replace("dark-mode", "light-mode");
-      toggleButton.textContent = "☀️";
+      toggleButton.textContent = "";
       localStorage.setItem("theme", "light-mode");
     } else {
       body.classList.replace("light-mode", "dark-mode");
-      toggleButton.textContent = "🌙";
+      toggleButton.textContent = "";
       localStorage.setItem("theme", "dark-mode");
     }
   });
