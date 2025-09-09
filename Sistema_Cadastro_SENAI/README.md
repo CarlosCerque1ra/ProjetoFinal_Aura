@@ -14,8 +14,11 @@ Apesar do avanço dos meios digitais de recrutamento, ainda persiste uma dificul
 Diante dessa realidade, o Mural de Vagas é proposto como solução para reduzir a distância entre oferta e demanda de trabalho, atuando como uma ferramenta que potencializa a visibilidade dos candidatos e aumenta a eficiência dos processos de recrutamento. Ao aproximar empregadores e profissionais, a iniciativa contribui para a inclusão de trabalhadores qualificados no mercado e otimiza a seleção de talentos pelas empresas, tornando o processo mais ágil, justo e acessível.
 
 ## Primeiros passos
-Inicialmente, realizamos uma análise da tipografia da marca SENAI, bem como dos requisitos que devem ser atendidos na criação de uma nova página. O objetivo é que essa página funcione como uma ferramenta eficaz para que as empresas possam contratar alunos da instituição, ampliando sua visibilidade e fortalecendo a confiança no mercado, tanto nacional quanto internacional.
+Inicialmente, realizamos uma análise da tipografia da marca SENAI, bem como dos requisitos que devem ser atendidos na criação de uma nova página. O objetivo é que essa página funcione como uma ferramenta eficaz para que as empresas possam contratar alunos da instituição, ampliando sua visibilidade e fortalecendo a confiança no mercado, tanto nacional quanto internacional.<br>
 <img width="299" height="305" alt="image" src="https://github.com/user-attachments/assets/28dedced-193c-460c-b05b-a611598f77b5" />
+
+
+
 
 
 
