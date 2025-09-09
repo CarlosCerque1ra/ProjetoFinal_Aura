@@ -45,7 +45,10 @@ A **Aura** utiliza ferramentas modernas que garantem **organização, colaboraç
 <img width="420" alt="image" src="https://github.com/user-attachments/assets/36281415-0d73-4508-bae2-ae529e159613" />
 </p>
 
+## Protótipos
+Criamos protótipos para o planejamento do novo site da Escola SENAI "A. Jacob Lafer", com o objetivo de estruturar e validar a navegação, funcionalidades e fluxo de informações relacionadas a estágios e oportunidades de emprego. Os protótipos incluem telas da página inicial, mural de oportunidades (com visualização para alunos e administradores), formulários de envio de dados, cadastro de vagas por empresas e acesso a documentos de estágio. Essa etapa foi fundamental para guiar o desenvolvimento, garantindo uma experiência mais clara, funcional e alinhada às necessidades dos usuários.
 
+<img width="803" height="311" alt="image" src="https://github.com/user-attachments/assets/953e3986-0218-445f-80fb-157466f02b15" />
 
 
 
