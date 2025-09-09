@@ -1,4 +1,4 @@
-# Sistema de Cadastro para a empresa SENAI<br>
+# Sistema de Cadastro SENAI<br>
 ##### Atenção! esté trabalho é feito com carater educacional
 
 ## Introdução
