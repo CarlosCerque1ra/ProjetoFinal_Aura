@@ -35,15 +35,15 @@ A **Aura** utiliza ferramentas modernas que garantem **organização, colaboraç
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   <img src="https://img.shields.io/badge/VSCode-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VSCode"/>
   <img src="https://img.shields.io/badge/Microsoft_Word-2B579A?style=for-the-badge&logo=microsoft-word&logoColor=white" alt="Word"/>
+
 </p>
 
 
 ## Nossas logos!!!
 <p align="center">
-<img width="400" height="500" alt="1" src="[https://github.com/user-attachments/assets/348a95df-e02b-4e23-af91-1864c855469f](https://lh3.googleusercontent.com/drive-storage/AJQWtBOK3Co4zMDApHnEQ6ZCzSSCjmsJXNlCa37kKBLuDffg_bc8FtDf1JF1dvr0LN_gNov1wpCInY3mb-0CXYyl9djQgsF9yUeQLVnX7AlMRSXKGaI=w1897-h877?auditContext=forDisplay)"/>
 
-<img width="400" height="877" alt="image" src="https://github.com/user-attachments/assets/199965bd-b48e-4f68-8a61-030d25dfe262" />
-<img width="400" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" />
+<img width="350" height="877" alt="image" src="https://github.com/user-attachments/assets/199965bd-b48e-4f68-8a61-030d25dfe262" />
+<img width="300" height="500" alt="image" src="https://github.com/user-attachments/assets/a4a82d61-e23e-4147-a0e3-4aa9ee1b115f" />
 
 
 </p>
