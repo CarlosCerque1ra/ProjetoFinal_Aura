@@ -71,3 +71,20 @@ Essa versão mantém todas as funcionalidades da área desktop, adaptando o desi
 
 ---
 
+## Diagramas UML (Unified Modeling Language)
+As figuras incluem o Diagrama de Casos de Uso, o Diagrama de Classes e o Diagrama de Sequência, cada um abordando uma perspectiva diferente do sistema “Mural de Vagas”.<br><br>
+📘 O Diagrama de Casos de Uso apresenta as principais interações entre os atores — Aluno, Administrador e Empresa — e as funcionalidades do sistema, como buscar, cadastrar e validar vagas.<br>
+📗 O Diagrama de Classes ilustra a estrutura interna do sistema, mostrando suas entidades, atributos, métodos e os relacionamentos entre elas.<br>
+📙 O Diagrama de Sequência descreve o fluxo de mensagens e ações realizadas entre o usuário, a interface, o sistema e o banco de dados durante operações como login, busca e candidatura em vagas.<br><br>
+>💡 *Esses diagramas foram criados para garantir uma visão clara, organizada e profissional da arquitetura do sistema, facilitando tanto o desenvolvimento quanto futuras manutenções ou expansões do projeto.*
+
+---
+
+## Casos de Teste
+Para garantir a qualidade, confiabilidade e funcionamento correto do sistema, foram elaborados e executados casos de teste com base nos requisitos funcionais definidos na etapa de análise.<br>
+Os testes foram registrados em uma tabela de verificação, onde cada requisito foi associado a um cenário de teste específico, descrevendo o comportamento esperado e o resultado obtido. Essa abordagem permitiu confirmar se cada funcionalidade do sistema foi implementada conforme o planejado.<br><br>
+<p align="center">
+  <img width="600" height="350" alt="image" src="https://github.com/user-attachments/assets/33cf75e0-cc14-4d4f-9348-fe71ed5e25e6" />
+</p>
+
+>💡 *Esses testes foram fundamentais para validar a integridade e a usabilidade do sistema, assegurando que o Mural de Vagas funcione de maneira estável e eficiente em seu ambiente de execução.*
