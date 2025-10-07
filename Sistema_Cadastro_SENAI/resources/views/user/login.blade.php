@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Senai - Login</title>
     <style>
+        body{
         a {
             text-decoration: none;
             color: #858585ff;
@@ -15,11 +16,14 @@
         a:hover{
             color: #616161ff;
         }
+        input:focus{
     </style>
 </head>
 <body>
+<body style="background-color: #d5d5d5;">
     
     <header class="d-flex gap-3" style="background-color: #d5d5d5;">
+    <header class="d-flex gap-2" style="background-color: #d5d5d5; height:20%;">
         <a href="https://www.fiesp.com.br/" target="_blank" class="ms-5"><i>FIESP</i></a>
         <a href="https://www.ciesp.com.br/" target="_blank" class="ms-5"><i>CIESP</i></a>
         <a href="https://www.sesisp.org.br/" target="_blank" class="ms-5"><i>SESI</i></a>
@@ -28,6 +32,7 @@
     </header>
     <div style="background-image: ;">
 
+    <div style="background-image: url('{{ asset('img/fundo-form.jpg') }}'); background-size: 99.9%; background-repeat: no-repeat;">
     </div>
 
 
