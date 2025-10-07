@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('user/mural');
+    return view('user/documentos_estagio');
 });
 
 
