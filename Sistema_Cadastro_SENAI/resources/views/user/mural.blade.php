@@ -25,7 +25,7 @@
             <h1 style="font-weight: bold;">Mural de Oportunidades</h1>
             <div class="d-flex flex-column gap-2">
                 <p style="font-weight: bold;">A escola atua apenas como intermediária na divulgação das oportunidades de estágio, emprego e aprendizagem, não se responsabilizando pelos critérios de seleção definidos pelas empresas.</p>
-                <p style="font-weight: bold;">Para as vagas de estágio, é imprescindível que o estudante leia atentamente o Manual de Estágio (Encontrado em <a style="color: #ff0000;">Documentos de Estágio</a>) antes de comparecer à empresa.</p>
+                <p style="font-weight: bold;">Para as vagas de estágio, é imprescindível que o estudante leia atentamente o Manual de Estágio (Encontrado em <a href="#" style="color: #ff0000;">Documentos de Estágio</a>) antes de comparecer à empresa.</p>
                 <p style="font-weight: bold;">Além disso, recomenda-se procurar o Orientador de Estágios para receber as orientações necessárias quanto aos procedimentos e documentos exigidos.</p>
             </div>
         </div>
@@ -48,6 +48,15 @@
         </div>
 
         <div class="d-flex col-sm-12">
+            <div class="col-sm-6">
+                <div class="card text-bg-dark">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="color: #ff0000;"><i class="bi bi-pin-angle">EMPREGO - MONTADOR DE MÓVEIS(Nº016/2025)</i></h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
             <div class="col-sm-6">
                 <div class="card text-bg-dark">
                     <img src="..." class="card-img" alt="...">
