@@ -4,33 +4,7 @@
 @section('title', 'Página Inicial')
 
 @push('styles')
-<style>
-    .list-group-item {
-        font-size: 1.3rem;
-        padding: 1rem 1.5rem;
-    }
 
-    img {
-        max-width: 350px;
-    }
-
-    .bi {
-        font-size: 2rem;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    .btn {
-        font-size: 1.2rem;
-        padding: 0.75rem 2rem;
-    }
-</style>
 @endpush
 
 @section('content')
