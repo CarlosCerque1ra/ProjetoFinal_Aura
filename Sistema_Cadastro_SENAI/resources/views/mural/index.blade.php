@@ -189,11 +189,11 @@
     <div class="container mt-4" style="background-color: #ffffffff; border-radius: 15px; padding: 20px;">
         <div>
             <ul class="d-flex justify-content-between list-unstyled">
-                <li>Informações</li>
+                <li><a href="{{ route('informacoes.index') }}" class="fw-bold" style="color: #000;">Informações</a></li>
                 <li>|</li>
-                <li>Mural de oportunidades</li>
+                <li><a href="{{ route('mural.index') }}" class="fw-bold" style="color: #000;">Mural de oportunidades</a></li>
                 <li>|</li>
-                <li>Documentos de Estágio</li>
+                <li><a href="{{ route('documento_estagio.index') }}" class="fw-bold" style="color: #000;">Documentos de Estágio</a></li>
             </ul>
         </div>
         <hr>
@@ -206,10 +206,10 @@
             </div>
         </div>
         <hr>
-        <div class="d-flex align-items-center gap-3 mb-4">
+        <form method="GET" class="d-flex align-items-center gap-3 mb-4">
             <!-- Campo de pesquisa com lupa -->
             <div class="input-group me-3" style="width: 70%;">
-                <input type="text" class="form-control" placeholder="Pesquise aqui..." 
+                <input type="text" name="busca" id="busca" class="form-control" placeholder="Pesquise aqui..." 
                     style="border-radius: 30px 0 0 30px; border: 1px solid #d9d9d9; padding: 10px;">
                 <span class="input-group-text" 
                     style="background: #f5f5f5; border: 1px solid #d9d9d9; border-left: none; border-radius: 0 30px 30px 0;">
@@ -218,10 +218,10 @@
             </div>
 
             <!-- Botão de filtro -->
-            <button class="btn" style="color: #333; border-radius: 30px; background: #f5f5f5; border: 1px solid #d9d9d9; padding: 10px 20px;">
+            <button type="submit" class="btn" style="color: #333; border-radius: 30px; background: #f5f5f5; border: 1px solid #d9d9d9; padding: 10px 20px;">
                 <i class="bi bi-funnel-fill"></i> Filtrar
             </button>
-        </div>
+        </form>
 
         <!-- cards de vagas -->
         <div class="col-sm-12 row">
