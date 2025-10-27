@@ -275,7 +275,7 @@
                             <li class="nav-item"><a href="" class="nav-link">Unidades</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Transparência</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Fale conosco</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Mural de Vagas</a></li>
+                            <li class="nav-item"><a href="{{ route('mural.index') }}" class="nav-link">Mural de Vagas</a></li>
                         </ul>
                     </div>
 

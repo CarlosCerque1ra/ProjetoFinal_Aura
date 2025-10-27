@@ -24,7 +24,7 @@ Route::get('/mural', [UserController::class, 'index'])->name('mural.index');
 Route::get('/pag_init', [UserController::class, 'pagInit'])->name('pag_init');
 
 // Documento de estágio
-Route::get('/documento_estagio', [UserController::class, 'documentoEstagio'])->name('documento_estagio.index');
+Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->name('documento_estagio.index');
 
 // Informações
 Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
