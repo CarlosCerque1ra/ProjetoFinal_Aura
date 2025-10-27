@@ -22,11 +22,11 @@
     <div class="container my-4 container" style="background-color: #ffffffff; border-radius: 15px; padding: 20px;">
         <div>
             <ul class="d-flex justify-content-between list-unstyled">
-                <li>Informações</li>
+                <li><a href="{{ route('informacoes.index') }}" class="fw-bold" style="color: #000;">Informações</a></li>
                 <li>|</li>
-                <li>Mural de oportunidades</li>
+                <li><a href="{{ route('mural.index') }}" class="fw-bold" style="color: #000;">Mural de oportunidades</a></li>
                 <li>|</li>
-                <li>Documentos de Estágio</li>
+                <li><a href="{{ route('documento_estagio.index') }}" class="fw-bold" style="color: #000;">Documentos de Estágio</a></li>
             </ul>
         </div>
         <hr>

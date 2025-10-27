@@ -47,28 +47,30 @@
                 <h2 class="" style="color: #D8240B; font-size: 28px; font-weight: bold;"><i>PORTAL EDUCACIONAL</i></h2>
                 <img src="{{ asset('img/sesisenai.png') }}" class="mb-3" style="max-width: 40%;" alt="Logo">
             </div>
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                </div>
-            @endif
-            <form action="POST" action="{{ route('login') }}">
+            
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <h5 class="mb-5" style="font-weight: normal;">FAÇA LOGIN E CONHEÇA AS NOVIDADES.</h5>
+                @if($errors->any())
+                    <div class="alert alert-danger" style="width: 335px;">
+                        @foreach($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="input-grup d-flex flex-column mb-3">
                     <label for="cpf">Digite seu CPF: *</label>
                     <input type="text" class="mb-3" name="cpf" id="cpf" placeholder="___.___.___-__" style="max-width: 300px; height: 40px;">
                 </div>
                 <div class="input-grup d-flex flex-column mb-3">
-                    <label for="cpf">Digite seu Senha: *</label>
+                    <label for="senha">Digite sua Senha: *</label>
                     <input type="password" class="mb-3" name="senha" id="senha" placeholder="********" style="max-width: 300px; height: 40px;">
                 </div>
-                <button class="btn btn-danger pb-2" style="width: 15%; font-weight: 10px; background-color: #D8240B;"><i><i class="bi bi-arrow-up-right-square"></i>ENTRAR</button></i> <a href="#" class="ms-3" style="color: #D8240B; text-decoration: underline;"><i>Esqueci minha senha</i></a>
-                <div class="d-flex mt-3">
-                    <p>Não tenho acesso.</p><a href="#"class="ms-3" style="color: #D8240B; text-decoration: underline;"><i>O que fazer?</i></a>
-                </div>
+                <button type="submit" class="btn btn-danger pb-2" style="width: 15%; font-weight: 10px; background-color: #D8240B;">
+                    <i class="bi bi-arrow-up-right-square"></i>ENTRAR
+                </button>
             </form>
+
         </div>
         <footer class="mt-3" style="background-color: #d5d5d5;">
             <div class="d-flex justify-content-beetween">

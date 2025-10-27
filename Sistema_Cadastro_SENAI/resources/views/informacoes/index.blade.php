@@ -127,12 +127,12 @@
     <div class="sec1 container mt-5">
         <div class="estagio">
             <div>
-                <ul class="d-flex list-unstyled gap-5 d-flex-row justify-content-center pt-3">
-                    <li class="mt-3">Informações</li>
+                <ul class="d-flex list-unstyled gap-5 d-flex-row justify-content-between pt-3">
+                    <li class="mt-3"><a href="{{ route('informacoes.index') }}" style="color: #000;">Informações</a></li>
                     <li class="mt-3">|</li>
-                    <li class="mt-3">Mural de oportunidades</li>
+                    <li class="mt-3"><a href="{{ route('mural.index') }}" style="color: #000;">Mural de oportunidades</a></li>
                     <li class="mt-3">|</li>
-                    <li class="mt-3">Documentos de Estágio</li>
+                    <li class="mt-3"><a href="{{ route('documento_estagio.index') }}" style="color: #000;">Documentos de Estágio</a></li>
                 </ul>
             </div>
         </div>

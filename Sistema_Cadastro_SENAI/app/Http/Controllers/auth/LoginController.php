@@ -6,42 +6,61 @@ use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
+    /**
+     * Exibe o formulário de login
+     */
     public function showLoginForm()
     {
         return view('auth.login');
     }
-public function login(Request $request)
-{
-    $request->validate([
-        'nome' => 'required|string',
-        'senha' => 'required|string',
-    ]);
 
-    $usuario = Usuario::where('nome', $request->nome)->first();
-
-    if (!$usuario || $request->senha !== $usuario->senha) {
-        throw ValidationException::withMessages([
-            'nome' => ['As credenciais fornecidas estão incorretas.'],
+    /**
+     * Processa o login do usuário
+     */
+    public function login(Request $request)
+    {
+        // Validação dos campos
+        $request->validate([
+            'cpf' => 'required|string',
+            'senha' => 'required|string',
         ]);
+
+        // Busca o usuário pelo CPF
+        $usuario = Usuario::where('cpf', $request->cpf)->first();
+
+        // Verifica se existe e se a senha bate (MD5 neste caso)
+        if (!$usuario || md5($request->senha) !== $usuario->senha) {
+            throw ValidationException::withMessages([
+                'cpf' => ['As credenciais fornecidas estão incorretas.'],
+            ]);
+        }
+
+        // Faz login usando o guard padrão (web)
+        Auth::login($usuario);
+
+        // Regenera a sessão por segurança
+        $request->session()->regenerate();
+
+        // Redireciona para a rota desejada (ex: mural)
+        return redirect()->route('mural.index');
     }
 
-    Auth::guard('usuarios')->login($usuario);
-    $request->session()->regenerate();
+    /**
+     * Faz logout do usuário
+     */
+    public function logout(Request $request)
+    {
+        // Logout usando o guard padrão
+        Auth::logout();
 
-    return redirect()->intended('/');
-}
-public function logout(Request $request)
-{
-    Auth::guard('usuarios')->logout(); // ou Auth::logout() dependendo do guard usado
+        // Invalida a sessão e gera novo token CSRF
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-
-    return redirect('/login');
-}
+        return redirect('/login');
+    }
 }

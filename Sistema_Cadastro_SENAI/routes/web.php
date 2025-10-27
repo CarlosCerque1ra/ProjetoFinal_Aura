@@ -5,12 +5,28 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('pag-init/index');
+    return view('pag_init/index');
 });
 Route::get('/mural', [UserController::class, 'index'])->name('mural.index');
 Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
 Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->name('documento_estagio.index');
+
+// Página de login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Página inicial / mural
+Route::get('/mural', [UserController::class, 'index'])->name('mural.index');
+
+// Página inicial personalizada
+Route::get('/pag_init', [UserController::class, 'pagInit'])->name('pag_init');
+
+// Documento de estágio
+Route::get('/documento_estagio', [UserController::class, 'documentoEstagio'])->name('documento_estagio.index');
+
+// Informações
+Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
+
 

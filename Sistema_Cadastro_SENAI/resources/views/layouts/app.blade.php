@@ -284,15 +284,13 @@
                         <i class="bi bi-search"></i>
                         <span style="border-left:2px solid #222; height:24px; margin:0 8px;"></span>
                         <i class="bi bi-person"></i>
-                        <span class="ms-1">SOU ALUNO</span>
+                        <a href="{{ route('pag_init') }}"><span class="ms-1">{{ auth()->user()->nome }}</span></a>
                     </div>
 
                     <!-- Lupa à direita (apenas mobile) -->
                     <div class="mobile-search d-lg-none">
                         <i class="bi bi-search" style="font-size:1.5rem; color: #000;"></i>
                     </div>
-                </div>
-            </div>
 
             <!-- Menu Mobile (collapse) -->
             <div class="collapse navbar-collapse" id="navbarMenu">

@@ -218,7 +218,7 @@
             </div>
 
             <!-- Botão de filtro -->
-            <button type="submit" class="btn" style="color: #333; border-radius: 30px; background: #f5f5f5; border: 1px solid #d9d9d9; padding: 10px 20px;">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalFiltro" style="color: #333; border-radius: 30px; background: #f5f5f5; border: 1px solid #d9d9d9; padding: 10px 20px;">
                 <i class="bi bi-funnel-fill"></i> Filtrar
             </button>
         </form>
@@ -340,4 +340,36 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" id="modalFiltro" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filtros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="GET">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="filtro[]" value="Emprego" id="emprego" 
+                                {{ in_array('Emprego', $checkbox ?? []) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="emprego">Emprego</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="filtro[]" value="Estagio" id="estagio"
+                                {{ in_array('Estagio', $checkbox ?? []) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="estagio">Estágio</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="filtro[]" value="Aprendizagem" id="aprendizagem"
+                                {{ in_array('Aprendizagem', $checkbox ?? []) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="aprendizagem">Aprendizagem</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Filtrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @endsection
