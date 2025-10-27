@@ -189,11 +189,11 @@
     <div class="container mt-4" style="background-color: #ffffffff; border-radius: 15px; padding: 20px;">
         <div>
             <ul class="d-flex justify-content-between list-unstyled">
-                <li><a href="{{ route('informacoes.index') }}" class="fw-bold" style="color: #000;">Informações</a></li>
+                <li><a href="{{ route('informacoes.index') }}" class="fw-bold" style="color: #000; margin-left: 70px;">Informações</a></li>
                 <li>|</li>
                 <li><a href="{{ route('mural.index') }}" class="fw-bold" style="color: #000;">Mural de oportunidades</a></li>
                 <li>|</li>
-                <li><a href="{{ route('documento_estagio.index') }}" class="fw-bold" style="color: #000;">Documentos de Estágio</a></li>
+                <li><a href="{{ route('documento_estagio.index') }}" class="fw-bold" style="color: #000; margin-right: 70px;">Documentos de Estágio</a></li>
             </ul>
         </div>
         <hr>
@@ -226,7 +226,7 @@
         <!-- cards de vagas -->
         <div class="col-sm-12 row">
             @foreach($vagas as $vaga)
-                <div class="col-sm-6 mb-2" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
+                <div class="col-sm-5 mb-2" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px; margin-left:65px; margin-bottom:40px;">
                     <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
                         <div>
                             <div class="info-box d-flex align-items-start justify-content-start"
