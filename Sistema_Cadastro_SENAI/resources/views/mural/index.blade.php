@@ -224,40 +224,40 @@
         </div>
 
         <!-- cards de vagas -->
-        <div class="vacancy-row">
-            <div class="vacancy-col" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px">
-                <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
-                    <div>
-                        <div class="info-box d-flex align-items-start justify-content-start" style="margin-right: 10px; min-height:270px; margin-top: 20px ; padding:8px; max-width: 400px; min-width: 340px;">
-                            <h5><i class="bi bi-pin-angle" style="font-size: 25px;"></i> EMPREGO - MONTADOR DE MÓVEIS (N°017/2025)</h5>
-                            <hr>
-                            <p><strong>Requisitos:</strong> Ensino médio, experiência em montagem industrial.</p>
-                            <p><strong>Atividades:</strong> Montagem, testes e entrega com qualidade.</p>
+        <div class="col-sm-12 row">
+            @foreach($vagas as $vaga)
+                <div class="col-sm-6 mb-2" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
+                    <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
+                        <div>
+                            <div class="info-box d-flex align-items-start justify-content-start"
+                                style="margin-right: 10px; min-height:270px; margin-top: 20px; padding:8px; max-width: 400px; min-width: 340px;">
+                                <h5>
+                                    <i class="bi bi-pin-angle" style="font-size: 25px;"></i>
+                                    {{ $vaga->tipo }} - {{ $vaga->titulo }}
+                                </h5>
+                                <hr>
+                                <p><strong>Requisitos:</strong> {{ $vaga->requisitos }}</p>
+                                <p><strong>Atividades:</strong> {{ $vaga->atividades }}</p>
+                            </div>
+                            <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;">
+                                <strong>Informações adicionais</strong><br>
+                                <strong>{{ $vaga->empresa }}</strong><br>
+                                <strong>Telefone para contato:</strong> {{ $vaga->telefone }}<br>
+                                <strong>Publicado em:</strong> {{ $vaga->publicacao }}
+                            </p>
                         </div>
-                        <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;"><strong>Informações adicionais</strong><br>
-                        <strong>EMPRESA</strong><br> <strong>Telefone para contato:</strong> 11 90000-0000<br>
-                        <strong>Publicado em:</strong> 08/09/2025</p>
                     </div>
+                    @if ($vaga->tipo != 'estagio')
+                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho">
+                            Entrar em contato
+                        </button>
+                    @else
+                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalEstagio">
+                            Entrar em contato
+                        </button>
+                    @endif
                 </div>
-                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho">Entrar em contato</button>
-            </div>
-
-            <div class="vacancy-col" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px">
-                <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
-                    <div>
-                        <div class="info-box d-flex align-items-start justify-content-start" style="margin-right: 10px; min-height:270px; margin-top: 20px ; padding:8px; max-width: 400px; min-width: 340px;">
-                            <h5><i class="bi bi-pin-angle" style="font-size: 25px;"></i> Estagio - MONTADOR DE MÓVEIS (N°017/2025)</h5>
-                            <hr>
-                            <p><strong>Requisitos:</strong> Ensino médio, experiência em montagem industrial.</p>
-                            <p><strong>Atividades:</strong> Montagem, testes e entrega com qualidade.</p>
-                        </div>
-                        <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;"><strong>Informações adicionais</strong><br>
-                        <strong>EMPRESA</strong><br> <strong>Telefone para contato:</strong> 11 90000-0000<br>
-                        <strong>Publicado em:</strong> 08/09/2025</p>
-                    </div>
-                </div>
-                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalEstagio">Entrar em contato</button>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -329,7 +329,7 @@
                             <input id="atuacao" type="text" placeholder="Digite aqui...">
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
-                            <label for="curriculo">Envie seus:</label>
+                            <label for="curriculo">Envie seus documentos:</label>
                             <input id="curriculo" type="file">
                         </div>
                     </form>
