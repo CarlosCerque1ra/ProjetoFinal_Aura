@@ -47,7 +47,14 @@
                 <h2 class="" style="color: #D8240B; font-size: 28px; font-weight: bold;"><i>PORTAL EDUCACIONAL</i></h2>
                 <img src="{{ asset('img/sesisenai.png') }}" class="mb-3" style="max-width: 40%;" alt="Logo">
             </div>
-            <form action="POST">
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
+            <form action="POST" action="{{ route('login') }}">
                 <h5 class="mb-5" style="font-weight: normal;">FAÇA LOGIN E CONHEÇA AS NOVIDADES.</h5>
                 <div class="input-grup d-flex flex-column mb-3">
                     <label for="cpf">Digite seu CPF: *</label>
