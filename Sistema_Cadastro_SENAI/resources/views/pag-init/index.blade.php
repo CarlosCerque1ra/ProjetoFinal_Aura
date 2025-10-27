@@ -16,7 +16,7 @@
                 <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Institucional</li></a>
                 <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Informações ao alunos</li></a>
                 <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Horário de atendimento</li></a>
-                <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Procurar vagas</li></a>
+                <a href="{{ route('mural.index') }}" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Procurar vagas</li></a>
             </ul>
         </div>
         <div class="me-5" style="height: 30vh;">

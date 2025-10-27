@@ -201,7 +201,7 @@
             <h1 style="font-weight: bold;">Mural de Oportunidades</h1>
             <div class="d-flex flex-column gap-2">
                 <p style="font-weight: bold;">A escola atua apenas como intermediária na divulgação das oportunidades de estágio, emprego e aprendizagem, não se responsabilizando pelos critérios de seleção definidos pelas empresas.</p>
-                <p style="font-weight: bold;">Para as vagas de estágio, é imprescindível que o estudante leia atentamente o Manual de Estágio (Encontrado em <a href="#" style="color: #ff0000;">Documentos de Estágio</a>) antes de comparecer à empresa.</p>
+                <p style="font-weight: bold;">Para as vagas de estágio, é imprescindível que o estudante leia atentamente o Manual de Estágio (Encontrado em <a href="{{ route('documento_estagio.index') }}" style="color: #ff0000;">Documentos de Estágio</a>) antes de comparecer à empresa.</p>
                 <p style="font-weight: bold;">Além disso, recomenda-se procurar o Orientador de Estágios para receber as orientações necessárias quanto aos procedimentos e documentos exigidos.</p>
             </div>
         </div>

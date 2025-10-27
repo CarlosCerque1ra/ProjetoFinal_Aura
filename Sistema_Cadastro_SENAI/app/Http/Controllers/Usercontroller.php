@@ -15,4 +15,9 @@ class UserController extends Controller
         // Retorna a view e envia as vagas
         return view('mural.index', compact('vagas'));
     }
+
+    public function documento_estagio()
+    {
+        return view('documento_estagio.index');
+    }
 }
