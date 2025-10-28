@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -45,8 +46,64 @@ class UserController extends Controller
     }
 
     public function pagInit()
-{
-    return view('pag_init.index'); // ou qualquer view
-}
+    {
+        return view('pag_init.index'); // ou qualquer view
+    }
+
+    public function cadastrar(Request $request)
+    {
+        // Validação dos dados
+        $validated = $request->validate([
+            'nome' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telefone' => 'required|string|max:20',
+            'atuacao' => 'required|string|max:255',
+            'id_aluno' => 'required|integer',
+            'id_vaga' => 'required|integer',
+            'curriculo' => 'nullable|file|mimes:pdf,doc,docx|max:2048', // opcional, apenas arquivos permitidos
+        ]);
+
+        if ($request->hasFile('curriculo')) {
+            $file = $request->file('curriculo');
+            $path = $file->store('curriculos', 'public');
+            $validated['curriculo'] = $path;
+        }
+
+        DB::table('inscritos')->insert($validated);
+
+        return redirect()->back()->with([
+            'mensagem' => 'Cadastro realizado com sucesso!',
+            'tipo' => 'alert-success' // ou 'alert-danger' para erros
+        ]);
+    }
+
+    public function vaga(Request $request){
+        // Validação dos dados
+        $validated = $request->validate([
+            'empresa' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telefone' => 'required|string|max:20',
+            'responsavel' => 'required|string|max:255',
+            'titulo' => 'required|string|max:255',
+            'tipo' => 'required|string|max:100',
+            'requisitos' => 'required|string|max:255',
+            'atividades' => 'required|string|max:255',
+            'horario' => 'required|time',
+            'beneficios' => 'required|string|max:255',
+        ]);
+
+        if ($request->hasFile('curriculo')) {
+            $file = $request->file('curriculo');
+            $path = $file->store('curriculos', 'public');
+            $validated['curriculo'] = $path;
+        }
+
+        DB::table('inscritos')->insert($validated);
+
+        return redirect()->back()->with([
+            'mensagem' => 'Cadastro realizado com sucesso!',
+            'tipo' => 'alert-success' // ou 'alert-danger' para erros
+        ]);
+    }
 
 }

@@ -15,6 +15,7 @@ Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/cadastrar',[UserController::class,'cadastrar'])->name('cadastrar');
 
 // Página inicial / mural
 Route::get('/mural', [UserController::class, 'index'])->name('mural.index');
@@ -27,5 +28,8 @@ Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->
 
 // Informações
 Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
+
+// Cadastrar vagas
+route::post('/vaga', [UserController::class, 'vaga'])->name('vaga');
 
 

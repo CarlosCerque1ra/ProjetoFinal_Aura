@@ -167,11 +167,11 @@
         </div>
 
         <!-- Botão para abrir o modal -->
-    <div class="container text-center">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#vagaModal" style="background-color: #ff0000; color: white; font-weight: bold; height: 35px; width: 300px; border-radius: 8px; margin:20px;">
-        Cadastrar Vaga
-      </button>
-    </div>
+      <div class="container text-center">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#vagaModal" style="background-color: #ff0000; color: white; font-weight: bold; height: 35px; width: 300px; border-radius: 8px; margin:20px;">
+         Cadastrar Vaga
+        </button>
+      </div>
 
     <!-- Modal -->
     <div class="modal fade" id="vagaModal" tabindex="-1" aria-labelledby="vagaModalLabel" aria-hidden="true">
@@ -182,70 +182,70 @@
             <h5 class="modal-title titulo mx-auto text-center" id="vagaModalLabel">Adicionar Nova Vaga</h5>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="{{ route('vaga') }}" method="POST">
               <!-- Nome da Empresa -->
               <div class="mb-3">
                 <label for="empresa" class="form-label">Nome da Empresa</label>
-                <input type="text" class="form-control" id="empresa" required>
+                <input type="text" name="empresa" class="form-control" id="empresa" required>
               </div>
 
               <!-- E-mail para contato -->
               <div class="mb-3">
                 <label for="email" class="form-label">E-mail para Contato</label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" name="email" class="form-control" id="email" required>
               </div>
 
               <!-- Telefone para contato -->
               <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone para Contato</label>
-                <input type="tel" class="form-control" id="telefone">
+                <input type="tel" name="telefone" class="form-control" id="telefone" required>
               </div>
 
               <!-- Nome do Responsável -->
               <div class="mb-3">
                 <label for="responsavel" class="form-label">Nome do Responsável</label>
-                <input type="text" class="form-control" id="responsavel">
+                <input type="text" name="responsavel" class="form-control" id="responsavel" required>
               </div>
 
               <!-- Título da Vaga -->
               <div class="mb-3">
                 <label for="tituloVaga" class="form-label">Título da Vaga</label>
-                <input type="text" class="form-control" id="tituloVaga" required>
+                <input type="text" name="titulo" class="form-control" id="tituloVaga" required>
               </div>
 
               <!-- Tipo de Vaga -->
               <div class="mb-3">
                 <label for="tipoVaga" class="form-label">Tipo de Vaga</label>
-                <select class="form-select" id="tipoVaga" required>
+                <select class="form-select" name="tipo_vaga" id="tipoVaga" required>
                   <option value="">Selecione...</option>
-                  <option value="emprego">Emprego</option>
-                  <option value="estagio">Estágio</option>
-                  <option value="aprendizagem">Aprendizagem</option>
+                  <option value="EMPREGO">Emprego</option>
+                  <option value="ESTAGIO">Estágio</option>
+                  <option value="APRENDIZAGEM">Aprendizagem</option>
                 </select>
               </div>
 
               <!-- Requisitos -->
               <div class="mb-3">
                 <label for="requisitos" class="form-label">Requisitos</label>
-                <textarea class="form-control" id="requisitos" rows="3"></textarea>
+                <textarea name="requisitos" class="form-control" id="requisitos" rows="3" required></textarea>
               </div>
 
               <!-- Atividades -->
               <div class="mb-3">
                 <label for="atividades" class="form-label">Atividades</label>
-                <textarea class="form-control" id="atividades" rows="3"></textarea>
+                <textarea name="atividades" class="form-control" id="atividades" rows="3" required></textarea>
               </div>
 
               <!-- Horário -->
               <div class="mb-3">
                 <label for="horario" class="form-label">Horário</label>
-                <input type="text" class="form-control" id="horario">
+                <input name="horario" type="text" class="form-control" id="horario" required>
               </div>
 
               <!-- Benefícios (incluindo salário) -->
               <div class="mb-3">
                 <label for="beneficios" class="form-label">Benefícios (incluir salário se desejar)</label>
-                <textarea class="form-control" id="beneficios" rows="3"></textarea>
+                <textarea name="beneficios" class="form-control" id="beneficios" rows="3" required></textarea>
               </div>
 
               <!-- Botões -->
@@ -262,11 +262,11 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-            </div>
+    </div>
 
 
 
-        @endsection
+@endsection
 
 
 

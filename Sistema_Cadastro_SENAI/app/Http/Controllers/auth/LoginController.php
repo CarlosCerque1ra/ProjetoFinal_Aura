@@ -46,7 +46,7 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         // Redireciona para a rota desejada (ex: mural)
-        return redirect()->route('mural.index');
+        return redirect()->route('pag_init');
     }
 
     /**
@@ -61,6 +61,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/pag_init');
     }
 }

@@ -291,10 +291,22 @@
                         <span style="border-left:2px solid #222; height:24px;"></span>
                         <i class="bi bi-person"></i>
                         @if(auth()->user())
-                            <a href="{{ route('pag_init') }}"><span class="ms-1">{{ auth()->user()->nome }}</span></a>
+                            <a href="{{ route('pag_init') }}">
+                                <span class="ms-1">{{ auth()->user()->nome }}</span>
+                            </a>
+
+                            <a href="#" 
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="bi bi-power"></i>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         @else
                             <a href="{{ route('login') }}" class="ms-1">SOU&nbsp;ALUNO</a>
                         @endif
+
                     </div>
 
                     <!-- Lupa à direita (apenas mobile) -->

@@ -185,7 +185,6 @@
 
 
 @section('content')
-
     <div class="container mt-4" style="background-color: #ffffffff; border-radius: 15px; padding: 20px;">
         <div>
             <ul class="d-flex justify-content-between list-unstyled">
@@ -224,7 +223,22 @@
         </form>
 
         <!-- cards de vagas -->
+        <?php $mensagem = ''; ?>
         <div class="col-sm-12 row">
+           <!-- Mensagens de sucesso/erro -->
+            @if(session('mensagem'))
+                <div class="alert {{ session('tipo') }}">
+                    {{ session('mensagem') }}
+                </div>
+            @endif
+
+            <!-- Erros de validação -->
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">{{ $error }}</div>
+                @endforeach
+            @endif
+
             @foreach($vagas as $vaga)
                 <div class="col-sm-5 mb-2" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px; margin-left:65px; margin-bottom:40px;">
                     <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
@@ -247,14 +261,22 @@
                             </p>
                         </div>
                     </div>
-                    @if ($vaga->tipo != 'estagio')
-                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho">
-                            Entrar em contato
-                        </button>
+                    @if ($vaga->tipo != 'ESTAGIO')
+                        @if(auth()->user())
+                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho">
+                                Entrar em contato
+                            </button>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms-2">Entrar em contato</a>
+                        @endif
                     @else
-                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalEstagio">
-                            Entrar em contato
-                        </button>
+                        @if(auth()->user())
+                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalEstagio">
+                                Entrar em contato
+                            </button>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms"></a>
+                        @endif
                     @endif
                 </div>
             @endforeach
@@ -273,31 +295,34 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="POST" class="p-0">
+                    <form method="POST" action="{{ route('cadastrar') }}" enctype="multipart/form-data"  class="p-0">
+                        @csrf
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="nome">Nome:</label>
-                            <input id="nome" type="text" placeholder="Digite aqui...">
+                            <input name="nome" id="nome" type="text" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="email">Email:</label>
-                            <input id="email" type="email" placeholder="Digite aqui...">
+                            <input name="email" id="email" type="email" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="telefone">Telefone:</label>
-                            <input id="telefone" type="tel" placeholder="Digite aqui...">
+                            <input name="telefone" id="telefone" type="tel" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="atuacao">Área de atuação:</label>
-                            <input id="atuacao" type="text" placeholder="Digite aqui...">
+                            <input name="atuacao" id="atuacao" type="text" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="curriculo">Envie seu currículo:</label>
-                            <input id="curriculo" type="file">
+                            <input name="curriculo" id="curriculo" type="file" required>
+                        </div>
+                        <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
+                        <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
+                        <div class="modal-footer centered">
+                            <button type="submit" class="btn btn-danger">Enviar dados</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer centered">
-                    <button type="button" class="btn btn-danger">Enviar dados</button>
                 </div>
             </div>
         </div>
@@ -311,32 +336,35 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="POST" class="p-0">
+                    <form method="POST" action="{{ route('cadastrar') }}" enctype="multipart/form-data" class="p-0">
+                        @csrf
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="nome">Nome:</label>
-                            <input id="nome" type="text" placeholder="Digite aqui...">
+                            <input name="nome" id="nome" type="text" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="email">Email:</label>
-                            <input id="email" type="email" placeholder="Digite aqui...">
+                            <input name="email" id="email" type="email" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="telefone">Telefone:</label>
-                            <input id="telefone" type="tel" placeholder="Digite aqui...">
+                            <input name="telefone" id="telefone" type="tel" placeholder="Digite aqui ex((11)111111111)" required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="atuacao">Área de atuação:</label>
-                            <input id="atuacao" type="text" placeholder="Digite aqui...">
+                            <input name="atuacao" id="atuacao" type="text" placeholder="Digite aqui..." required>
                         </div>
                         <div class="form-group mb-2 d-flex flex-column">
                             <label for="curriculo">Envie seus documentos:</label>
-                            <input id="curriculo" type="file">
+                            <input name="curriculo" id="curriculo" type="file" required>
+                        </div>
+                        <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
+                        <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
+                        <div class="modal-footer centered">
+                            <button type="submit" class="btn btn-danger">Enviar dados</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer centered">
-                    <button type="button" class="btn btn-danger">Enviar dados</button>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
