@@ -261,23 +261,13 @@
                             </p>
                         </div>
                     </div>
-                    @if ($vaga->tipo != 'ESTAGIO')
-                        @if(auth()->user())
-                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho">
-                                Entrar em contato
-                            </button>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms-2">Entrar em contato</a>
-                        @endif
+                    @if(auth()->user())
+                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
+                            Entrar em contato
+                        </button>
                     @else
-                        @if(auth()->user())
-                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalEstagio">
-                                Entrar em contato
-                            </button>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms"></a>
-                        @endif
-                    @endif
+                        <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms-2">Entrar em contato</a>
+                     @endif
                 </div>
             @endforeach
         </div>
@@ -287,88 +277,57 @@
 
 
     <!-- modals -->
-    <div class="modal fade" tabindex="-1" id="modalTrabalho" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content centered" role="document" style="background-color: #e9e9e9;">
-                <div class="modal-header centered">
-                    <h5 class="modal-title centered mt-4">Enviar dados Emprego</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{{ route('cadastrar') }}" enctype="multipart/form-data"  class="p-0">
-                        @csrf
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="nome">Nome:</label>
-                            <input name="nome" id="nome" type="text" placeholder="Digite aqui..." required>
+    @foreach($vagas as $vaga)
+        @if($vaga->tipo != 'ESTAGIO')
+            <?php $tipo = 'Emprego'; ?>
+        @else
+            <?php $tipo = 'Estágio'; ?>
+        @endif
+            <!-- Modal exclusivo para esta vaga -->
+            <div class="modal fade" id="modalTrabalho-{{ $vaga->id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content centered" role="document" style="background-color: #e9e9e9;">
+                        <div class="modal-header centered">
+                            <h5 class="modal-title centered mt-4">Enviar dados <?php echo $tipo ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                         </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="email">Email:</label>
-                            <input name="email" id="email" type="email" placeholder="Digite aqui..." required>
+                        <div class="modal-body">
+                            <form method="POST" action="{{ route('cadastrar') }}" enctype="multipart/form-data"  class="p-0">
+                                @csrf
+                                <div class="form-group mb-2 d-flex flex-column">
+                                    <label for="nome">Nome:</label>
+                                    <input name="nome" id="nome" type="text" value="{{ auth()->user()->nome }}" placeholder="Digite aqui..." required>
+                                </div>
+                                <div class="form-group mb-2 d-flex flex-column">
+                                    <label for="email">Email:</label>
+                                    <input name="email" id="email" type="email" placeholder="Digite aqui..." required>
+                                </div>
+                                <div class="form-group mb-2 d-flex flex-column">
+                                    <label for="telefone">Telefone:</label>
+                                    <input name="telefone" id="telefone" type="tel" placeholder="Digite aqui..." required>
+                                </div>
+                                <div class="form-group mb-2 d-flex flex-column">
+                                    <label for="atuacao">Área de atuação:</label>
+                                    <input name="atuacao" id="atuacao" type="text" placeholder="Digite aqui..." required>
+                                </div>
+                                <div class="form-group mb-2 d-flex flex-column">
+                                    <label for="curriculo">Envie seu currículo:</label>
+                                    <input name="curriculo" id="curriculo" type="file" required>
+                                </div>
+                                <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
+                                <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
+                                <div class="modal-footer centered">
+                                    <button type="submit" class="btn btn-danger">Enviar dados</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="telefone">Telefone:</label>
-                            <input name="telefone" id="telefone" type="tel" placeholder="Digite aqui..." required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="atuacao">Área de atuação:</label>
-                            <input name="atuacao" id="atuacao" type="text" placeholder="Digite aqui..." required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="curriculo">Envie seu currículo:</label>
-                            <input name="curriculo" id="curriculo" type="file" required>
-                        </div>
-                        <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
-                        <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
-                        <div class="modal-footer centered">
-                            <button type="submit" class="btn btn-danger">Enviar dados</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
 
-    <div class="modal fade" tabindex="-1" id="modalEstagio" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content centered" role="document" style="background-color: #e9e9e9;">
-                <div class="modal-header centered">
-                    <h5 class="modal-title centered mt-4">Enviar dados Estágio</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{{ route('cadastrar') }}" enctype="multipart/form-data" class="p-0">
-                        @csrf
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="nome">Nome:</label>
-                            <input name="nome" id="nome" type="text" placeholder="Digite aqui..." required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="email">Email:</label>
-                            <input name="email" id="email" type="email" placeholder="Digite aqui..." required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="telefone">Telefone:</label>
-                            <input name="telefone" id="telefone" type="tel" placeholder="Digite aqui ex((11)111111111)" required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="atuacao">Área de atuação:</label>
-                            <input name="atuacao" id="atuacao" type="text" placeholder="Digite aqui..." required>
-                        </div>
-                        <div class="form-group mb-2 d-flex flex-column">
-                            <label for="curriculo">Envie seus documentos:</label>
-                            <input name="curriculo" id="curriculo" type="file" required>
-                        </div>
-                        <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
-                        <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
-                        <div class="modal-footer centered">
-                            <button type="submit" class="btn btn-danger">Enviar dados</button>
-                        </div>
-                    </form>
-                </div> 
-            </div>
-        </div>
-    </div>
-
+    <!-- Modal de Filtro -->
     <div class="modal" tabindex="-1" id="modalFiltro" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
