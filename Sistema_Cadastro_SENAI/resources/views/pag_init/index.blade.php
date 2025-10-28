@@ -47,6 +47,36 @@
     <div class="text-center">
         <img src="{{ asset('img/escola.png') }}" alt="Imagem Senai" class="img-fluid w-100 rounded shadow">
     </div>
+   
+    <!-- Bloco de cursos no mobile -->
+    <div class="text-center mt-4 mb-5">
+
+        <!-- Título e ícones -->
+        <div class="d-flex justify-content-center align-items-center position-relative mb-2">
+            <h3 class="fw-bold m-0">Cursos</h3>
+        </div>
+
+        <!-- Seta -->
+        <i class="bi bi-chevron-down text-danger fs-1"></i>
+
+        <!-- Lista de cursos -->
+        <div class="mt-3 d-flex flex-column align-items-center gap-3">
+            <div class="curso-card text-white fw-bold py-3 w-100" style="background-color:#E30613;">Pesquisar Todos</div>
+
+            <div class="curso-card bg-white text-dark py-3 w-100 position-relative shadow-sm rounded">
+                <span class="fw-semibold">Alimentos e Bebidas</span>
+            </div>
+
+            <div class="curso-card bg-white text-dark py-3 w-100 position-relative shadow-sm rounded">
+                <span class="fw-semibold">Automotiva</span>
+            </div>
+
+            <div class="curso-card bg-white text-dark py-3 w-100 position-relative shadow-sm rounded">
+                <span class="fw-semibold">Construção Civil e Design de Mobiliário</span>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <style>
@@ -61,6 +91,15 @@
             flex-direction: column;
             width: 100%;
         }
-    }
+        .curso-card {
+            border-left: 4px solid #E30613;
+            border-radius: 8px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+        .curso-card:first-child {
+            border-left: none;
+            border-radius: 6px;
+        }
 </style>
 @endsection
