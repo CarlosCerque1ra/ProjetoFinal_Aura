@@ -17,7 +17,6 @@
         border-radius: 15px;
         padding: 20px;
         margin: 20px auto;
-        max-width: 900px;
     }
 
     /* MENU */
@@ -107,7 +106,7 @@
 @endpush
 
 @section('content')
-<div class="container-custom">
+<div class="container-custom container mt-4">
     <!-- MENU -->
     <div class="estagio">
         <ul class="menu-links">

@@ -18,9 +18,8 @@
         background-color: #ffffff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 900px;
         margin: 40px auto;
-        padding-bottom: 40px;
+        padding: 20px;
     }
 
     h1, h2, h5 {
@@ -214,7 +213,7 @@
 @endpush
 
 @section('content')
-<div class="sec1">
+<div class="sec1 container mt-4">
     <!-- MENU -->
     <div class="estagio">
         <ul class="menu-links">
