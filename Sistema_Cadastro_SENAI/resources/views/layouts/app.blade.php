@@ -284,7 +284,11 @@
                         <i class="bi bi-search"></i>
                         <span style="border-left:2px solid #222; height:24px; margin:0 8px;"></span>
                         <i class="bi bi-person"></i>
-                        <a href="{{ route('pag_init') }}"><span class="ms-1">{{ auth()->user()->nome }}</span></a>
+                        @if(auth()->user())
+                            <a href="{{ route('pag_init') }}"><span class="ms-1">{{ auth()->user()->nome }}</span></a>
+                        @else
+                            <a href="{{ route('login') }}"><span class="ms-1">SOU ALUNO</span></a>
+                        @endif
                     </div>
 
                     <!-- Lupa à direita (apenas mobile) -->
