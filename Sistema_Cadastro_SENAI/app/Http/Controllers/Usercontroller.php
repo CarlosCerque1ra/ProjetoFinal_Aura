@@ -91,7 +91,7 @@ class UserController extends Controller
             'init_expediente' => 'required|date_format:H:i:s',
             'fim_expediente' => 'required|date_format:H:i:s',
             'beneficios' => 'required|string|max:255',
-            'publicacao' => 'required|string', // novo campo
+            'publicacao' => 'required|string',
         ], [
             'init_expediente.date_format' => 'O início do expediente deve estar no formato HH:MM:SS.',
             'fim_expediente.date_format' => 'O fim do expediente deve estar no formato HH:MM:SS.',
@@ -107,5 +107,33 @@ class UserController extends Controller
     }
 
 
+    public function atualizarVaga(Request $request, $id)
+    {
+        // Validação dos dados
+        $validated = $request->validate([
+            'empresa' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telefone' => 'required|string|max:20',
+            'responsavel' => 'required|string|max:255',
+            'titulo' => 'required|string|max:255',
+            'tipo' => 'required|string|max:100',
+            'requisitos' => 'required|string|max:255',
+            'atividades' => 'required|string|max:255',
+            'init_expediente' => 'required|date_format:H:i:s',
+            'fim_expediente' => 'required|date_format:H:i:s',
+            'beneficios' => 'required|string|max:255',
+            'publicacao' => 'required|string',
+        ], [
+            'init_expediente.date_format' => 'O início do expediente deve estar no formato HH:MM:SS.',
+            'fim_expediente.date_format' => 'O fim do expediente deve estar no formato HH:MM:SS.',
+        ]);
 
+        // Atualizar no banco
+        DB::table('vagas')->where('id', $id)->update($validated);
+
+        return redirect()->back()->with([
+            'mensagem' => 'Vaga atualizada com sucesso!',
+            'tipo' => 'alert-success'
+        ]);
+    }
 }

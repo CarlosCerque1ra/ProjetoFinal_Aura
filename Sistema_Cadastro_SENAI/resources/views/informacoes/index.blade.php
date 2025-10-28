@@ -379,7 +379,7 @@
               </div>
 
               <!-- data -->
-              <input type="hidden" name="publicacao" id="data_hora_cliente">
+              <input type="hidden" name="publicacao" id="publicacao">
 
 
               <!-- Botões -->

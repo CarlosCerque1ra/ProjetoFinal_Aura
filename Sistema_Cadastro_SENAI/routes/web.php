@@ -32,4 +32,6 @@ Route::get('/informacoes', [UserController::class, 'informacoes'])->name('inform
 // Cadastrar vagas
 route::post('/vaga', [UserController::class, 'vaga'])->name('vaga');
 
+// vaga atualizar
+route::put('/vaga/{id}', [UserController::class, 'atualizarVaga'])->name('vaga.atualizar');
 

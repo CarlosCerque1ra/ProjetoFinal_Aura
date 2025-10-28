@@ -262,9 +262,17 @@
                         </div>
                     </div>
                     @if(auth()->user())
-                        <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
-                            Entrar em contato
-                        </button>
+                        @if(auth()->user()->tipo == 'ALUNO')
+                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">Entrar em contato</button>
+                        @else
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">Entrar em contato</button>
+                                <div class="mt-2">
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}"><i class="bi bi-pencil-square">Editar</i></button>
+                                    <button class="btn btn-danger"><i class="bi bi-trash">Excluir</i></button>
+                                </div>
+                            </div>
+                        @endif
                     @else
                         <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms-2">Entrar em contato</a>
                      @endif
@@ -359,4 +367,114 @@
         </div>
     </div>
 
-    @endsection
+    <!-- Modal de edição das vagas -->
+    @foreach($vagas as $vaga)
+        <div class="modal fade" id="modalEditarVaga-{{ $vaga->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #e9e9e9;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Vaga: {{ $vaga->titulo }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{{ route('vaga.atualizar', $vaga->id) }}">
+                            @csrf
+                            @method('PUT') <!-- importante para atualização -->
+                            
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="empresa-{{ $vaga->id }}">Empresa:</label>
+                                <input name="empresa" id="empresa-{{ $vaga->id }}" type="text" class="form-control"
+                                    value="{{ $vaga->empresa }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="email-{{ $vaga->id }}">E-mail:</label>
+                                <input name="email" id="email-{{ $vaga->id }}" type="email" class="form-control"
+                                    value="{{ $vaga->email }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="telefone-{{ $vaga->id }}">Telefone:</label>
+                                <input name="telefone" id="telefone-{{ $vaga->id }}" type="tel" class="form-control"
+                                    value="{{ $vaga->telefone }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="responsavel-{{ $vaga->id }}">Responsável:</label>
+                                <input name="responsavel" id="responsavel-{{ $vaga->id }}" type="text" class="form-control"
+                                    value="{{ $vaga->responsavel }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="titulo-{{ $vaga->id }}">Título da Vaga:</label>
+                                <input name="titulo" id="titulo-{{ $vaga->id }}" type="text" class="form-control"
+                                    value="{{ $vaga->titulo }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="tipo-{{ $vaga->id }}">Tipo de Vaga:</label>
+                                <select name="tipo" id="tipo-{{ $vaga->id }}" class="form-select" required>
+                                    <option value="EMPREGO" {{ $vaga->tipo == 'EMPREGO' ? 'selected' : '' }}>Emprego</option>
+                                    <option value="ESTAGIO" {{ $vaga->tipo == 'ESTAGIO' ? 'selected' : '' }}>Estágio</option>
+                                    <option value="APRENDIZAGEM" {{ $vaga->tipo == 'APRENDIZAGEM' ? 'selected' : '' }}>Aprendizagem</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="requisitos-{{ $vaga->id }}">Requisitos:</label>
+                                <textarea name="requisitos" id="requisitos-{{ $vaga->id }}" class="form-control" rows="3" required>{{ $vaga->requisitos }}</textarea>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="atividades-{{ $vaga->id }}">Atividades:</label>
+                                <textarea name="atividades" id="atividades-{{ $vaga->id }}" class="form-control" rows="3" required>{{ $vaga->atividades }}</textarea>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="init_expediente-{{ $vaga->id }}">Início do expediente:</label>
+                                <input name="init_expediente" id="init_expediente-{{ $vaga->id }}" type="time" class="form-control"
+                                    value="{{ $vaga->init_expediente }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="fim_expediente-{{ $vaga->id }}">Fim do expediente:</label>
+                                <input name="fim_expediente" id="fim_expediente-{{ $vaga->id }}" type="time" class="form-control"
+                                    value="{{ $vaga->fim_expediente }}" required>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="beneficios-{{ $vaga->id }}">Benefícios:</label>
+                                <textarea name="beneficios" id="beneficios-{{ $vaga->id }}" class="form-control" rows="3" required>{{ $vaga->beneficios }}</textarea>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+
+                            <input type="hidden" name="publicacao" id="data_hora_cliente_{{ $vaga->id }}">
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const input = document.getElementById('data_hora_cliente_{{ $vaga->id }}');
+                                    if (!input) return;
+                                    const now = new Date();
+                                    const formatted = now.getFullYear() + '-' +
+                                        String(now.getMonth() + 1).padStart(2,'0') + '-' +
+                                        String(now.getDate()).padStart(2,'0') + ' ' +
+                                        String(now.getHours()).padStart(2,'0') + ':' +
+                                        String(now.getMinutes()).padStart(2,'0') + ':' +
+                                        String(now.getSeconds()).padStart(2,'0');
+                                    input.value = formatted;
+                                });
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    
+
+
+@endsection
