@@ -1,3 +1,6 @@
+CREATE DATABASE muralvagas;
+USE muralvagas;
+
 CREATE TABLE vagas (
   id INT AUTO_INCREMENT PRIMARY KEY,
   empresa VARCHAR(255),
@@ -19,7 +22,8 @@ CREATE TABLE users(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
     cpf BIGINT,
-    senha VARCHAR(255)
+    senha VARCHAR(255),
+    conta VARCHAR(50)
 );
 
 CREATE TABLE inscritos(
@@ -44,7 +48,7 @@ VALUES
 ('EducaTech', 'vagas@educatech.com', '11965478900', 'Ana Costa', 'Designer Instrucional', 'APRENDIZAGEM', 'Design gráfico, ferramentas de EAD', 'Desenvolver materiais e cursos online', '13:00:00', '21:00:00', 'Vale transporte, jornada flexível', '2025-10-29'),
 ('HealthPlus', 'rh@healthplus.com.br', '1134567890', 'Roberta Souza', 'Analista de Marketing Digital', 'EMPREGO', 'SEO, Google Ads, Analytics', 'Desenvolver campanhas de marketing e análise de resultados', '14:00:00', '22:00:00', 'Plano de saúde, vale alimentação', '2025-10-30');
 
-INSERT INTO users(nome, cpf, senha)
+INSERT INTO users(nome, cpf, senha, conta)
 VALUES
-('grupo3', '12312312355', '15de21c670ae7c3f6f3f1f37029303c9')
+('grupo3', '12312312355', '15de21c670ae7c3f6f3f1f37029303c9', 'admin')
  
