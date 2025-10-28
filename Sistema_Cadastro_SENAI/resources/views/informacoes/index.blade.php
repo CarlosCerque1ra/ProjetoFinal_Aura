@@ -274,6 +274,19 @@
         <!-- 4 part -->
          <div class="par_2" style="padding: 30px;">
             <h1 class="text-center d-flex flex-column justify-content-center mb-1">Cadastro de Vagas - Empresas</h1>
+            <?php $mensagem = ''; ?>
+            @if(session('mensagem'))
+              <div class="alert {{ session('tipo') }}">
+                {{ session('mensagem') }}
+              </div>
+            @endif
+
+            <!-- Erros de validação -->
+            @if($errors->any())
+              @foreach($errors->all() as $error)
+                <div class="alert alert-danger">{{ $error }}</div>
+              @endforeach
+            @endif
             <br>
             <p><br>Convidamos as empresas que desejarem divulgar oportunidades de estágio, emprego efetivo ou aprendizagem a preencherem o formulário clicando no botão abaixo:<br>A participação das empresas é super importante para o desenvovimento profissional de todos os estudantes dos cursos SENAI-SP.</p>
         </div>
@@ -295,6 +308,7 @@
           </div>
           <div class="modal-body">
             <form action="{{ route('vaga') }}" method="POST">
+              @csrf
               <!-- Nome da Empresa -->
               <div class="mb-3">
                 <label for="empresa" class="form-label">Nome da Empresa</label>
@@ -328,7 +342,7 @@
               <!-- Tipo de Vaga -->
               <div class="mb-3">
                 <label for="tipoVaga" class="form-label">Tipo de Vaga</label>
-                <select class="form-select" name="tipo_vaga" id="tipoVaga" required>
+                <select class="form-select" name="tipo" id="tipoVaga" required>
                   <option value="">Selecione...</option>
                   <option value="EMPREGO">Emprego</option>
                   <option value="ESTAGIO">Estágio</option>
@@ -348,10 +362,15 @@
                 <textarea name="atividades" class="form-control" id="atividades" rows="3" required></textarea>
               </div>
 
-              <!-- Horário -->
+              <!-- Expediente -->
               <div class="mb-3">
-                <label for="horario" class="form-label">Horário</label>
-                <input name="horario" type="text" class="form-control" id="horario" required>
+                <label for="horario" class="form-label">Inicio do expediente</label>
+                <input name="init_expediente" type="text" class="form-control" id="init_expediente" placeholder="ex.06:00:00" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="horario" class="form-label">Fim do expediente</label>
+                <input name="fim_expediente" type="text" class="form-control" id="fim_expediente" placeholder="ex.14:00:00" required>
               </div>
 
               <!-- Benefícios (incluindo salário) -->
@@ -359,6 +378,10 @@
                 <label for="beneficios" class="form-label">Benefícios (incluir salário se desejar)</label>
                 <textarea name="beneficios" class="form-control" id="beneficios" rows="3" required></textarea>
               </div>
+
+              <!-- data -->
+              <input type="hidden" name="publicacao" id="data_hora_cliente">
+
 
               <!-- Botões -->
               <div class="modal-footer">
@@ -375,6 +398,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const input = document.getElementById('data_hora_cliente');
+          const now = new Date();
+
+          // Formata como YYYY-MM-DD HH:MM:SS
+          const formatted = now.getFullYear() + '-' +
+              String(now.getMonth() + 1).padStart(2,'0') + '-' +
+              String(now.getDate()).padStart(2,'0') + ' ' +
+              String(now.getHours()).padStart(2,'0') + ':' +
+              String(now.getMinutes()).padStart(2,'0') + ':' +
+              String(now.getSeconds()).padStart(2,'0');
+
+          input.value = formatted;
+      });
+    </script>
+
 
 
 

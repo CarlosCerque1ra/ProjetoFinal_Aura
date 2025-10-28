@@ -88,22 +88,24 @@ class UserController extends Controller
             'tipo' => 'required|string|max:100',
             'requisitos' => 'required|string|max:255',
             'atividades' => 'required|string|max:255',
-            'horario' => 'required|time',
+            'init_expediente' => 'required|date_format:H:i:s',
+            'fim_expediente' => 'required|date_format:H:i:s',
             'beneficios' => 'required|string|max:255',
+            'publicacao' => 'required|string', // novo campo
+        ], [
+            'init_expediente.date_format' => 'O início do expediente deve estar no formato HH:MM:SS.',
+            'fim_expediente.date_format' => 'O fim do expediente deve estar no formato HH:MM:SS.',
         ]);
 
-        if ($request->hasFile('curriculo')) {
-            $file = $request->file('curriculo');
-            $path = $file->store('curriculos', 'public');
-            $validated['curriculo'] = $path;
-        }
-
-        DB::table('inscritos')->insert($validated);
+        // Inserir no banco
+        DB::table('vagas')->insert($validated);
 
         return redirect()->back()->with([
             'mensagem' => 'Cadastro realizado com sucesso!',
-            'tipo' => 'alert-success' // ou 'alert-danger' para erros
+            'tipo' => 'alert-success'
         ]);
     }
+
+
 
 }
