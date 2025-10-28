@@ -45,6 +45,7 @@
         padding-top: 15px;
         margin: 0 40px;
         font-weight: bold;
+        
     }
 
     .menu-links li {
@@ -255,7 +256,6 @@
         A participação das empresas é super importante para o desenvolvimento profissional dos estudantes dos cursos SENAI-SP.</p>
     </div>
 
-<<<<<<< Updated upstream
         <!-- 2 Part -->
         <div class="par_2" style="padding: 30px;">
             <h5 class="align-items-center d-flex">Atenção, alunos e ex-alunos!</h5>
@@ -284,19 +284,9 @@
          Cadastrar Vaga
         </button>
       </div>
-=======
-    <!-- BOTÃO MODAL -->
-    <div class="container text-center">
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#vagaModal"
-            style="background-color: #ff0000; color: white; font-weight: bold; height: 35px; width: 300px; border-radius: 8px; margin:20px;">
-            Cadastrar Vaga
-        </button>
-    </div>
->>>>>>> Stashed changes
 
     <!-- MODAL -->
     <div class="modal fade" id="vagaModal" tabindex="-1" aria-labelledby="vagaModalLabel" aria-hidden="true">
-<<<<<<< Updated upstream
       <div class="modal-dialog modal-lg"> <!-- modal-lg para maior espaço -->
         <div class="modal-content">
           <div class="modal-header position-relative">
@@ -392,74 +382,3 @@
 
 
 
-=======
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header position-relative">
-                    <button type="button" class="btn-close position-absolute end-0 top-50 translate-middle-y"
-                        data-bs-dismiss="modal" aria-label="Fechar"></button>
-                    <h5 class="modal-title titulo mx-auto text-center" id="vagaModalLabel">Adicionar Nova Vaga</h5>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="empresa" class="form-label">Nome da Empresa</label>
-                            <input type="text" class="form-control" id="empresa" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-mail para Contato</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone para Contato</label>
-                            <input type="tel" class="form-control" id="telefone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="responsavel" class="form-label">Nome do Responsável</label>
-                            <input type="text" class="form-control" id="responsavel">
-                        </div>
-                        <div class="mb-3">
-                            <label for="tituloVaga" class="form-label">Título da Vaga</label>
-                            <input type="text" class="form-control" id="tituloVaga" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tipoVaga" class="form-label">Tipo de Vaga</label>
-                            <select class="form-select" id="tipoVaga" required>
-                                <option value="">Selecione...</option>
-                                <option value="emprego">Emprego</option>
-                                <option value="estagio">Estágio</option>
-                                <option value="aprendizagem">Aprendizagem</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="requisitos" class="form-label">Requisitos</label>
-                            <textarea class="form-control" id="requisitos" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="atividades" class="form-label">Atividades</label>
-                            <textarea class="form-control" id="atividades" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="horario" class="form-label">Horário</label>
-                            <input type="text" class="form-control" id="horario">
-                        </div>
-                        <div class="mb-3">
-                            <label for="beneficios" class="form-label">Benefícios (incluir salário se desejar)</label>
-                            <textarea class="form-control" id="beneficios" rows="3"></textarea>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Enviar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-@endsection
->>>>>>> Stashed changes

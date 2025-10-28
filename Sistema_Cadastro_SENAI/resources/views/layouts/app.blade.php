@@ -22,9 +22,9 @@
             color: white;
         }
 
-        .cimah a { color: white; }
-
-        a { text-decoration: none; }
+        .cimah a{
+             text-decoration: none;
+        }
 
         .baixoh {
             background-color: #fff;
@@ -39,6 +39,7 @@
             color: #242424ff; 
             font-size: 15px;
             font-weight: 500;
+            text-decoration: none;
         }
 
         .baixoh a:hover {
@@ -201,6 +202,9 @@
             .cimah i {
                 font-size: 0.9rem;
             }
+            .cimah a {
+                text-decoration: none;
+            }
         }
 
         @media (max-width: 576px) {
@@ -268,7 +272,7 @@
 
                     <!-- Logo Centralizado -->
                     <div class="logo-container">
-                        <img src="{{ asset('img/senai.png') }}" alt="logo" style="height:50px; width:auto;">
+                        <a href="{{ route('pag_init')}}"><img src="{{ asset('img/senai.png') }}" alt="logo" style="height:50px; width:auto;"></a>
                     </div>
                     
                     <!-- Menu Desktop (visível apenas em desktop) -->
