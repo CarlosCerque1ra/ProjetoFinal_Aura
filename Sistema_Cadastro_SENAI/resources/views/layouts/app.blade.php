@@ -56,7 +56,7 @@
         .desktop-menu {
             display: flex;
             justify-content: center;
-            width: 100%;
+            width: 75%;
         }
 
         .desktop-menu .nav {
@@ -70,6 +70,7 @@
 
         .user-section {
             display: flex;
+            flex-direction: row;
             align-items: center;
             gap: 8px;
             margin-left: 2rem;
@@ -78,6 +79,11 @@
         .user-section i {
             color: #000 !important;
             font-size: 1.5rem;
+        }
+
+        .user-section a span {
+            display: inline;         /* força o texto ficar na mesma linha */
+            white-space: nowrap;     /* impede quebra de linha automática */
         }
 
         /* Menu Mobile Styles */
@@ -266,7 +272,7 @@
                     </div>
                     
                     <!-- Menu Desktop (visível apenas em desktop) -->
-                    <div class="desktop-menu d-none d-lg-flex">
+                    <div class="desktop-menu d-none d-md-flex">
                         <ul class="nav flex-row align-items-end mb-0">
                             <li class="nav-item"><a href="" class="nav-link">Cursos</a></li>
                             <li class="nav-item"><a href="" class="nav-link">Processo Seletivo</a></li>
@@ -280,14 +286,14 @@
                     </div>
 
                     <!-- Seção do Usuário (Desktop) -->
-                    <div class="user-section d-none d-lg-flex">
+                    <div class="user-section d-none d-sm-flex">
                         <i class="bi bi-search"></i>
-                        <span style="border-left:2px solid #222; height:24px; margin:0 8px;"></span>
+                        <span style="border-left:2px solid #222; height:24px;"></span>
                         <i class="bi bi-person"></i>
                         @if(auth()->user())
                             <a href="{{ route('pag_init') }}"><span class="ms-1">{{ auth()->user()->nome }}</span></a>
                         @else
-                            <a href="{{ route('login') }}"><span class="ms-1">SOU ALUNO</span></a>
+                            <a href="{{ route('login') }}" class="ms-1">SOU&nbsp;ALUNO</a>
                         @endif
                     </div>
 
