@@ -386,8 +386,8 @@
                 <textarea name="beneficios" class="form-control" id="beneficios" rows="3" required></textarea>
               </div>
 
-              <!-- data -->
-              <input type="hidden" name="publicacao" id="publicacao">
+              <!-- No formulário do modal, ajustar o input hidden -->
+              <input type="hidden" name="publicacao" id="data_hora_cliente">
 
 
               <!-- Botões -->
@@ -405,19 +405,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     </div>
+    <!-- Corrigir o script para preencher o campo -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-          const input = document.getElementById('data_hora_cliente');
+          const input = document.getElementById('data_hora_cliente'); // usa o mesmo id do input
+          if (!input) return; // verifica se encontrou o elemento
+          
           const now = new Date();
-
-          // Formata como YYYY-MM-DD HH:MM:SS
           const formatted = now.getFullYear() + '-' +
               String(now.getMonth() + 1).padStart(2,'0') + '-' +
               String(now.getDate()).padStart(2,'0') + ' ' +
               String(now.getHours()).padStart(2,'0') + ':' +
               String(now.getMinutes()).padStart(2,'0') + ':' +
               String(now.getSeconds()).padStart(2,'0');
-
+          
           input.value = formatted;
       });
     </script>
