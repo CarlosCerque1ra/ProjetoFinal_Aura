@@ -101,5 +101,7 @@
             border-left: none;
             border-radius: 6px;
         }
+
+    }
 </style>
 @endsection

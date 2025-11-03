@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        body { background: #dadadaff; }
+        body { background: #dadadaff;
+        font-family: Arial, sans-serif; }
 
         li { list-style: none; }
         
@@ -37,7 +38,7 @@
 
         .baixoh a { 
             color: #242424ff; 
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             text-decoration: none;
         }
@@ -278,13 +279,13 @@
                     <!-- Menu Desktop (visível apenas em desktop) -->
                     <div class="desktop-menu d-none d-md-flex">
                         <ul class="nav flex-row align-items-end mb-0">
-                            <li class="nav-item"><a href="" class="nav-link">Cursos</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Processo Seletivo</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">O SENAI</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Para a sua empresa</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Unidades</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Transparência</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">Fale conosco</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Cursos</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Processo Seletivo</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">O SENAI</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Para a sua empresa</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Unidades</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Transparência</a></li>
+                            <li class="nav-item"><a href="" class="nav-link fw-bold">Fale conosco</a></li>
                         </ul>
                     </div>
 

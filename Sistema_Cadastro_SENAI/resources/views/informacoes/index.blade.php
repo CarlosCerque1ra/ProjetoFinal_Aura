@@ -209,6 +209,14 @@
         }
     }
 
+    /* Forçar títulos do header/layout em negrito (aplica-se ao layout caso exista navbar) */
+    .navbar .navbar-brand,
+    .navbar .nav-link,
+    header h1,
+    header .titulo,
+    .menu-links li a {
+        font-weight: 700 !important;
+    }
 </style>
 @endpush
 

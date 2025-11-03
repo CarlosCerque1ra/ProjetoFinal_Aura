@@ -63,6 +63,12 @@
 
   /* Caixa branca com informações (à direita) */
   .info-box {
+    margin-right: 10px; 
+    min-height:270px; 
+    margin-top: 20px; 
+    padding:8px; 
+    max-width: 400px; 
+    min-width: 340px;
     position: absolute;
     right: 14px;
     top: 50%;
@@ -117,19 +123,6 @@
     height: 500px;
   }
 
-  /* Responsividade: em telas menores a info-box fica estática abaixo (não flutuante) */
-  @media (max-width: 991px) {
-    .info-box {
-      position: static;
-      transform: none;
-      width: 100%;
-      margin-top: 12px;
-      max-width: none;
-    }
-    .vacancy-card { height: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-    .vacancy-cta { position: static; display: inline-block; margin-top: 8px; }
-    .vacancy-col { flex-basis: 100%; }
-  }
 
   /* Centraliza modal e form */
   .modal-dialog-centered { display: flex; align-items: center; min-height: calc(100% - 1rem); }
@@ -180,6 +173,354 @@
   }
 
   .modal-footer.centered { width: 100%; justify-content: center; padding: 0.5rem 1.25rem 1rem; border-top: none; }
+
+  /* Regras do menu / header (padronizadas com informacoes/index) */
+  .menu-links {
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+      padding-top: 15px;
+      margin: 0 40px;
+      font-weight: bold;
+  }
+  .menu-links li { color: #000; font-weight: bold; }
+  .menu-links li a { color: #000; text-decoration: none; }
+  .menu-links li.separator { font-weight: bold; }
+
+  /* Forçar títulos do header/layout em negrito (aplica-se ao layout caso exista navbar) */
+  .navbar .navbar-brand,
+  .navbar .nav-link,
+  header h1,
+  header .titulo,
+  .menu-links li a {
+      font-weight: 700 !important;
+  }
+
+  /* Ajustes responsivos (mesma lógica do informacoes) */
+  @media (max-width: 768px) {
+    /* transforma o menu em coluna e alinha à esquerda */
+    .menu-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 10px;
+        gap: 8px;
+        font-size: 0.95rem;
+        padding-left: 0;
+    }
+
+    /* usa borda inferior como separador e remove '|' */
+    .menu-links li a {
+        display: block;
+        padding-bottom: 6px;
+        border-bottom: 1.5px solid #000000ff;
+        width: 100%;
+    }
+    .menu-links li.separator { display: none; }
+
+    /* adaptações para os cards do mural em telas pequenas */
+    .vacancy-card { height: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .vacancy-cta { position: static; display: inline-block; margin-top: 8px; }
+    .vacancy-col { flex-basis: 100%; }
+
+    /* garante que botões ocupem largura adequada */
+    .btn { width: 100% !important; margin-left: 0 !important; height: 45px !important; }
+
+    /* centraliza os modais como no informacoes */
+    .modal-dialog-centered { display: flex; align-items: center; min-height: calc(100% - 1rem); }
+    .modal-content.centered { max-width: 92%; width: 100%; }
+  }
+
+    /* Cards */
+    .vacancy-col {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 280px;
+    }
+
+    @media (max-width: 991px) {
+        .vacancy-col { flex-basis: 100%; margin-left:0 !important; }
+        .vacancy-card {
+            height: auto !important;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .vacancy-cta { position: static !important; display: inline-block; margin-top: 8px; }
+        /* Ajusta o p de informações adicionais para ficar abaixo da info-box */
+        .vacancy-card > div > p {
+            position: static !important;
+            margin-left: 0 !important;
+            margin-top: 10px !important;
+            font-size: 12px;
+        }
+        .menu-links {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0 10px !important;
+            gap: 8px;
+            padding-left: 0;
+        }
+        .menu-links li a {
+            display: block;
+            border-bottom: 1.5px solid #000;
+            width: 100%;
+        }
+        .menu-links li.separator { display: none; }
+
+        /* Info box com maior especificidade para sobrescrever outros estilos */
+        .vacancy-card .info-box,
+        .info-box.d-flex {
+            position: static !important;
+            transform: none !important;
+            width: 90% !important; /* largura relativa ao card */
+            min-width: 0 !important; /* remove min-width */
+            max-width: none !important;
+            margin: 8px auto !important;
+            padding: 10px !important;
+            min-height: 0 !important;
+            max-height: 200px !important;
+            overflow-y: auto !important;
+            background: white !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        }
+    }
+
+    /* Busca e botão filtro */
+    @media (max-width: 768px) {
+        form.d-flex {
+            flex-direction: column !important;
+            align-items: stretch !important;
+        }
+        form.d-flex input.form-control {
+            width: 100% !important;
+            margin-bottom: 10px;
+        }
+        form.d-flex button.btn {
+            width: 100% !important;
+        }
+    
+    }
+
+    /* Modais */
+    @media (max-width: 768px) {
+        .modal-dialog-centered { min-height: calc(100% - 1rem); }
+        .modal-content.centered { max-width: 92% !important; width: 100% !important; }
+        .modal-body form { max-width: 100% !important; }
+        .modal-footer.centered { flex-direction: column; gap: 10px; }
+    }
+
+  /* Pesquisa: wrapper, input e botão lado a lado */
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 760px;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  .search-input {
+    flex: 1 1 auto;
+    border-radius: 30px 0 0 30px;
+    border: 1px solid #d9d9d9;
+    padding: 12px 16px;
+    height: 48px;
+    background: #fff;
+  }
+  .search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-left: none;
+    border-radius: 0 30px 30px 0;
+    height: 48px;
+    width: 56px;
+    padding: 0;
+    cursor: pointer;
+  }
+  .search-btn i { font-size: 18px; color: #222; }
+
+  /* neutraliza regras antigas que podem forçar quebra */
+  .input-group { display: flex !important; flex-wrap: nowrap !important; align-items: center !important; }
+
+  @media (max-width: 768px) {
+    form.d-flex {
+      flex-direction: column !important;
+      gap: 10px;
+      align-items: stretch !important;
+    }
+    /* mantém input + lupa na mesma linha, faz wrapper ocupar 100% */
+    .search-wrapper { width: 100%; }
+    .search-input { width: 100%; }
+    /* faz o botão de filtro ir para a linha abaixo ocupando toda largura */
+    .filter-btn, .btn.filter-btn { width: 100% !important; height: 45px !important; }
+  }
+
+  /* Ajuste na linha de cards */
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col-sm-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 0 !important;  /* remove margem fixa que causa overflow */
+}
+
+
+/* Ajuste para margem entre cards apenas no desktop */
+@media (min-width: 992px) {
+    .col-sm-5 {
+        margin-bottom: 30px;
+        margin-right: 30px;
+    }
+    .col-sm-5:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+/* Consolidação de todos os media queries */
+@media (max-width: 991px) {
+    /* Layout e containers */
+    .vacancy-col,
+    .col-sm-5 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        margin: 0 0 18px 0 !important;
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    /* Menu mobile */
+    .menu-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 10px !important;
+        gap: 8px;
+        padding-left: 0;
+        font-size: 0.95rem;
+    }
+
+    .menu-links li a {
+        display: block;
+        padding-bottom: 6px;
+        border-bottom: 1.5px solid #000;
+        width: 100%;
+    }
+
+    .menu-links li.separator {
+        display: none;
+    }
+
+    /* Cards e info-box */
+    .vacancy-card {
+        height: auto !important;
+        min-height: 160px !important;
+        padding: 12px !important;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .info-box {
+        position: static !important;
+        transform: none !important;
+        max-width: 300px !important;
+        min-width: 100px !important;
+        padding: 8px 10px !important;
+        margin: 8px auto !important;
+        border-radius: 8px !important;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.06) !important;
+        font-size: 13px !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        max-height: 120px !important;
+        min-height: 100px !important;
+        overflow-y: auto !important;
+    }
+
+    .info-box h5 { 
+        font-size: 13px !important; 
+        margin-bottom: 6px !important; 
+    }
+    
+    .info-box p { 
+        font-size: 12px !important; 
+        margin-bottom: 6px !important; 
+    }
+
+    /* Informações adicionais */
+    .vacancy-card > div > p,
+    .additional-info {
+        position: static !important;
+        margin: 8px 12px !important;
+        padding: 0 !important;
+        text-align: right !important;
+        font-size: 11px !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    /* Botões */
+    .btn, 
+    .filter-btn {
+        width: 100% !important;
+        margin: 8px 0 !important;
+        height: 44px !important;
+    }
+
+    /* Modal */
+    .modal-dialog-centered { 
+        display: flex; 
+        align-items: center; 
+        min-height: calc(100% - 1rem); 
+    }
+    
+    .modal-content.centered { 
+        max-width: 92%; 
+        width: 100%; 
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 576px) {
+    .info-box { 
+        width: 100px !important; 
+        padding: 6px 8px !important; 
+    }
+    .info-box h5 { 
+        font-size: 12px !important; 
+    }
+    .additional-info, 
+    .vacancy-card > div > p, 
+    .info-box p { 
+        font-size: 10px !important; 
+    }
+}
+
+/* Desktop apenas */
+@media (min-width: 992px) {
+    .col-sm-5 {
+        margin-bottom: 30px;
+        margin-right: 30px;
+    }
+    .col-sm-5:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+
 </style>
 @endpush
 
@@ -187,13 +528,15 @@
 @section('content')
     <div class="container mt-4" style="background-color: #ffffffff; border-radius: 15px; padding: 20px;">
         <div>
-            <ul class="d-flex justify-content-between list-unstyled">
-                <li><a href="{{ route('informacoes.index') }}" class="fw-bold" style="color: #000; margin-left: 70px;">Informações</a></li>
-                <li>|</li>
-                <li><a href="{{ route('mural.index') }}" class="fw-bold" style="color: #000;">Mural de oportunidades</a></li>
-                <li>|</li>
-                <li><a href="{{ route('documento_estagio.index') }}" class="fw-bold" style="color: #000; margin-right: 70px;">Documentos de Estágio</a></li>
-            </ul>
+            <div class="estagio">
+                <ul class="menu-links">
+                    <li><a href="{{ route('informacoes.index') }}">Informações</a></li>
+                    <li class="separator">|</li>
+                    <li><a href="{{ route('mural.index') }}">Mural de oportunidades</a></li>
+                    <li class="separator">|</li>
+                    <li><a href="{{ route('documento_estagio.index') }}">Documentos de Estágio</a></li>
+                </ul>
+            </div>
         </div>
         <hr>
         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -206,45 +549,27 @@
         </div>
         <hr>
         <form method="GET" class="d-flex align-items-center gap-3 mb-4">
-            <!-- Campo de pesquisa com lupa -->
-            <div class="input-group me-3" style="width: 70%;">
-                <input type="text" name="busca" id="busca" class="form-control" placeholder="Pesquise aqui..." 
-                    style="border-radius: 30px 0 0 30px; border: 1px solid #d9d9d9; padding: 10px;">
-                <span class="input-group-text" 
-                    style="background: #f5f5f5; border: 1px solid #d9d9d9; border-left: none; border-radius: 0 30px 30px 0;">
-                    <i class="bi bi-search"></i>
-                </span>
+            <!-- Campo de pesquisa com lupa (input + botão lado a lado) -->
+            <div class="search-wrapper me-3">
+                <input type="search" name="busca" id="busca" class="search-input" placeholder="Pesquise aqui...">
+                <button type="submit" class="search-btn" aria-label="Pesquisar"><i class="bi bi-search"></i></button>
             </div>
 
             <!-- Botão de filtro -->
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalFiltro" style="color: #333; border-radius: 30px; background: #f5f5f5; border: 1px solid #d9d9d9; padding: 10px 20px;">
+            <button type="button" class="filter-btn" data-bs-toggle="modal" data-bs-target="#modalFiltro">
                 <i class="bi bi-funnel-fill"></i> Filtrar
             </button>
         </form>
 
         <!-- cards de vagas -->
         <?php $mensagem = ''; ?>
-        <div class="col-sm-12 row">
-           <!-- Mensagens de sucesso/erro -->
-            @if(session('mensagem'))
-                <div class="alert {{ session('tipo') }}">
-                    {{ session('mensagem') }}
-                </div>
-            @endif
-
-            <!-- Erros de validação -->
-            @if($errors->any())
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger">{{ $error }}</div>
-                @endforeach
-            @endif
-
+        <div class="row justify-content-center">
             @foreach($vagas as $vaga)
-                <div class="col-sm-5 mb-2" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px; margin-left:65px; margin-bottom:40px;">
+                <div class="col-sm-5" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
                     <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
                         <div>
-                            <div class="info-box d-flex align-items-start justify-content-start"
-                                style="margin-right: 10px; min-height:270px; margin-top: 20px; padding:8px; max-width: 400px; min-width: 340px;">
+                            <!-- Alterar esta parte do HTML - remover estilos inline -->
+                            <div class="info-box d-flex align-items-start justify-content-start">
                                 <h5>
                                     <i class="bi bi-pin-angle" style="font-size: 25px;"></i>
                                     {{ $vaga->tipo }} - {{ $vaga->titulo }}
@@ -304,7 +629,7 @@
                                 @csrf
                                 <div class="form-group mb-2 d-flex flex-column">
                                     <label for="nome">Nome:</label>
-                                    <input name="nome" id="nome" type="text" value="{{ auth()->user()->nome }}" placeholder="Digite aqui..." required>
+                                    <input name="nome" id="nome" type="text" value="{{ auth()->user()->nome ?? '' }}" placeholder="Digite aqui..." required>
                                 </div>
                                 <div class="form-group mb-2 d-flex flex-column">
                                     <label for="email">Email:</label>
