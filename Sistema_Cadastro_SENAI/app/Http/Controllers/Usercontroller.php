@@ -136,4 +136,14 @@ class UserController extends Controller
             'tipo' => 'alert-success'
         ]);
     }
+    public function excluirVaga(Request $request, $id)
+    {
+        // Excluir do banco
+        DB::table('vagas')->where('id', $id)->delete();
+
+        return redirect()->back()->with([
+            'mensagem' => 'Vaga excluída com sucesso!',
+            'tipo' => 'alert-success'
+        ]);
+    }
 }
