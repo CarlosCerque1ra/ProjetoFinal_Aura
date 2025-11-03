@@ -13,11 +13,11 @@
         <div class="d-flex">
             <div class="list-group"> <!-- Esconde em mobile -->
                 <ul style="list-style: none;">
-                    <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Home</li></a>
-                    <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Institucional</li></a>
-                    <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Informações ao alunos</li></a>
-                    <a href="#" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Horário de atendimento</li></a>
-                    <a href="{{ route('mural.index') }}" class="list-group-item list-group-item-action" style="background-color: #E30613; color: #fff; border:none;"><li>Procurar vagas</li></a>
+                    <a href="#" class="list-group-item list-group-item-action btn-init"><li>Home</li></a>
+                    <a href="#" class="list-group-item list-group-item-action btn-init"><li>Institucional</li></a>
+                    <a href="#" class="list-group-item list-group-item-action btn-init"><li>Informações ao alunos</li></a>
+                    <a href="#" class="list-group-item list-group-item-action btn-init"><li>Horário de atendimento</li></a>
+                    <a href="{{ route('mural.index') }}" class="list-group-item list-group-item-action btn-init"><li>Procurar vagas</li></a>
                 </ul>
             </div>
             <div class="me-5" style="height: 30vh;"> <!-- Esconde em mobile -->
@@ -80,6 +80,18 @@
 </div>
 
 <style>
+    .btn-init{
+        background-color: #E30613; 
+        color: #fff; 
+        border:none;
+    }
+
+    .btn-init:hover {
+        background-color: #c1040fff; 
+        color: #fff; 
+        border:none;
+    }
+
     @media (max-width: 767.98px) {
         .ms-5.container {
             height: auto !important;
@@ -101,7 +113,6 @@
             border-left: none;
             border-radius: 6px;
         }
-
     }
 </style>
 @endsection
