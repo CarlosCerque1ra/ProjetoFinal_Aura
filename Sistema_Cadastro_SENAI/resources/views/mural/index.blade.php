@@ -592,9 +592,13 @@
                         @else
                             <div class="d-flex justify-content-between">
                                 <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">Entrar em contato</button>
-                                <div class="mt-2">
+                                <div class="d-flex mt-2 gap-1">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}"><i class="bi bi-pencil-square">Editar</i></button>
-                                    <button class="btn btn-danger"><i class="bi bi-trash">Excluir</i></button>
+                                    <form action="{{ route('vaga.excluir', $vaga->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta vaga?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit"><i class="bi bi-trash">Excluir</i></button>
+                                    </form>
                                 </div>
                             </div>
                         @endif
@@ -704,7 +708,7 @@
                     <div class="modal-body">
                         <form method="POST" action="{{ route('vaga.atualizar', $vaga->id) }}">
                             @csrf
-                            @method('PUT') <!-- importante para atualização -->
+                            @method('PUT')
                             
                             <div class="form-group mb-2 d-flex flex-column">
                                 <label for="empresa-{{ $vaga->id }}">Empresa:</label>
@@ -798,8 +802,6 @@
             </div>
         </div>
     @endforeach
-
-    
 
 
 @endsection

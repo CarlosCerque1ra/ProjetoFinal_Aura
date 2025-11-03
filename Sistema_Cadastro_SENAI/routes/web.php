@@ -29,9 +29,12 @@ Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->
 // Informações
 Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
 
-// Cadastrar vagas
-route::post('/vaga', [UserController::class, 'vaga'])->name('vaga');
+// Cadastrar vaga
+Route::post('/vaga', [UserController::class, 'vaga'])->name('vaga');
 
-// vaga atualizar
-route::put('/vaga/{id}', [UserController::class, 'atualizarVaga'])->name('vaga.atualizar');
+// Atualizar vaga (PUT)
+Route::put('/vaga/{id}', [UserController::class, 'atualizarVaga'])->name('vaga.atualizar');
+
+// Excluir vaga (DELETE)
+Route::delete('/vaga/{id}', [UserController::class, 'excluirVaga'])->name('vaga.excluir');
 
