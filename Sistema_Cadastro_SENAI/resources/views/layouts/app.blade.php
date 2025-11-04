@@ -90,29 +90,42 @@
 
         /* Menu Mobile Styles */
         #navbarMenu {
-            position: absolute;
-            top: 100%;
+            position: fixed; /* mudado de absolute para fixed */
+            top: 110px; /* ajustado para considerar a altura do header */
             left: 0;
-            right: 0;
+            width: 85%;
+            height: calc(100vh - 110px); /* altura da viewport menos altura do header */
+            overflow-y: auto;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             background: white;
             border-top: #FF0000 3px solid;
+            border-radius: 0 0 8px 0; /* arredondar cantos */
         }
 
-        .navbar-toggler {
-            border: none;
-            background: transparent;
-            padding: 8px;
+        /* Ajustar scrollbar para ficar mais discreta */
+        #navbarMenu::-webkit-scrollbar {
+            width: 5px;
         }
 
-        .navbar-toggler:focus {
-            box-shadow: none;
-            outline: none;
+        #navbarMenu::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
         }
 
-        #navbarMenu .nav-link {
-            padding: 12px 20px;
+        #navbarMenu::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        #navbarMenu::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Ajustar padding dos itens do menu */
+        #navbarMenu .nav-link,
+        .mobile-menu-item {
+            padding: 15px 20px;
             border-bottom: 1px solid #f0f0f0;
             color: #333;
             font-weight: 500;
@@ -140,10 +153,21 @@
 
         /* Destaque para Mural de Vagas no mobile */
         .mural-vagas-mobile {
-            background-color: #FF0000;
+            background-color: transparent;
         }
 
         .mural-vagas-mobile .nav-link {
+            color: #333 !important;
+            font-weight: bold;
+        }
+
+        /* Adicionar estilo para o botão de login */
+        .login-mobile {
+            background-color: #FF0000;
+        }
+
+        .login-mobile .nav-link,
+        .login-mobile span {
             color: white !important;
             font-weight: bold;
         }
@@ -328,17 +352,17 @@
                     <li class="nav-item"><a href="" class="nav-link fw-bold">Unidades</a></li>
                     <li class="nav-item"><a href="" class="nav-link fw-bold">Transparência</a></li>
                     <li class="nav-item"><a href="" class="nav-link fw-bold">Fale conosco</a></li>
-                    <!-- Mural de Vagas com destaque -->
-                    <li class="nav-item mural-vagas-mobile">
+                    <li class="nav-item">
                         <a href="{{ route('mural.index')}}" class="nav-link fw-bold">Mural de Vagas</a>
                     </li>
-                    <li class="mobile-menu-item">
-                        <i class="bi bi-search" style="font-size:1.5rem; color: #000;"></i>
-                        <span class="fw-bold">Buscar</span>
-                    </li>
-                    <li class="mobile-menu-item">
-                        <i class="bi bi-person" style="font-size:1.5rem; color: #000;"></i>
-                        <span class="fw-bold">SOU ALUNO</span>
+                    <!-- Login com destaque vermelho -->
+                    <li class="mobile-menu-item login-mobile">
+                        <i class="bi bi-person" style="font-size:1.5rem; color: white;"></i>
+                        @if(auth()->user())
+                            <a href="{{ route('pag_init') }}" class="nav-link">{{ auth()->user()->nome }}</a>
+                        @else
+                            <a href="{{ route('login') }}" class="nav-link">SOU ALUNO</a>
+                        @endif
                     </li>
                 </ul>
             </div>

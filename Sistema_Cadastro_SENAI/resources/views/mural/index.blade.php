@@ -12,14 +12,28 @@
     background-color: #000000ff;
   }
 
-  /* Barra de pesquisa grande */
-  .search-wrapper { width: 100%; max-width: 760px; }
-  .search-input {
-    border-radius: 30px 0 0 30px;
-    border: 1px solid #d9d9d9;
-    padding: 14px 18px;
-    height: 48px;
+  .texto{
+    font-size: 12px;
+    position: relative;
+    margin-left: 200px;
+    margin-top: 420px;
   }
+
+  /* Barra de pesquisa grande */
+.search-wrapper {
+  width: 100%;
+  max-width: 1200px; /* aumentado para campo maior em telas largas */
+  flex: 1;
+}
+.search-input {
+  min-width: 860px; /* garante largura mínima agradável */
+  max-width: 100%;
+  flex: 1 1 auto;
+  border-radius: 30px 0 0 30px;
+  border: 1px solid #d9d9d9;
+  padding: 14px 18px;
+  height: 48px;
+}
   .search-btn {
     background: #f5f5f5;
     border: 1px solid #d9d9d9;
@@ -46,7 +60,7 @@
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    height: 260px; /* reduzido */
+    height: 500px; /* reduzido */
     background-size: cover;
     background-position: center;
     box-shadow: 0 6px 14px rgba(0,0,0,0.07);
@@ -118,9 +132,6 @@
     font-weight: 600;
     text-decoration: none;
     font-size: 13px;
-  }
-  .tamanho-card{
-    height: 500px;
   }
 
 
@@ -198,39 +209,7 @@
       font-weight: 700 !important;
   }
 
-  /* Ajustes responsivos (mesma lógica do informacoes) */
-  @media (max-width: 768px) {
-    /* transforma o menu em coluna e alinha à esquerda */
-    .menu-links {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0 10px;
-        gap: 8px;
-        font-size: 0.95rem;
-        padding-left: 0;
-    }
-
-    /* usa borda inferior como separador e remove '|' */
-    .menu-links li a {
-        display: block;
-        padding-bottom: 6px;
-        border-bottom: 1.5px solid #000000ff;
-        width: 100%;
-    }
-    .menu-links li.separator { display: none; }
-
-    /* adaptações para os cards do mural em telas pequenas */
-    .vacancy-card { height: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-    .vacancy-cta { position: static; display: inline-block; margin-top: 8px; }
-    .vacancy-col { flex-basis: 100%; }
-
-    /* garante que botões ocupem largura adequada */
-    .btn { width: 100% !important; margin-left: 0 !important; height: 45px !important; }
-
-    /* centraliza os modais como no informacoes */
-    .modal-dialog-centered { display: flex; align-items: center; min-height: calc(100% - 1rem); }
-    .modal-content.centered { max-width: 92%; width: 100%; }
-  }
+  
 
     /* Cards */
     .vacancy-col {
@@ -239,9 +218,10 @@
     }
 
     @media (max-width: 991px) {
+        
         .vacancy-col { flex-basis: 100%; margin-left:0 !important; }
         .vacancy-card {
-            height: auto !important;
+            height: 200px !important;
             padding: 14px;
             display: flex;
             flex-direction: column;
@@ -286,10 +266,19 @@
             border-radius: 8px !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
         }
+        hr {
+            display: none;
+            visibility: hidden;
+        }
     }
 
     /* Busca e botão filtro */
     @media (max-width: 768px) {
+        .search-input{
+            min-width: 80px !important;
+            max-width: 180px !important;
+        }
+
         form.d-flex {
             flex-direction: column !important;
             align-items: stretch !important;
@@ -301,213 +290,127 @@
         form.d-flex button.btn {
             width: 100% !important;
         }
-    
+        h1{
+            margin-top: 15px;
+        }
+
+        .texto{
+            margin-top: 0;
+            margin-left: 0;
+            text-align: right;
+            font-size: 10px;
+        }
+        /* Layout e containers */
+        .vacancy-col,
+        .col-sm-5 {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            padding: 0 15px !important;
+            margin: 0 0 18px 0 !important;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        /* Menu mobile */
+        .menu-links {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0 10px !important;
+            gap: 8px;
+            padding-left: 0;
+            font-size: 0.95rem;
+        }
+
+        .menu-links li a {
+            display: block;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid #000;
+            width: 100%;
+        }
+
+        .menu-links li.separator {
+            display: none;
+        }
+
+        /* Cards e info-box */
+        .vacancy-card {
+            margin-top: 5px;
+            height: auto !important;
+            min-height: 160px !important;
+            padding: 12px !important;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .info-box {
+            position: static !important;
+            transform: none !important;
+            max-width: 300px !important;
+            min-width: 100px !important;
+            padding: 8px 10px !important;
+            margin: 8px auto !important;
+            border-radius: 8px !important;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.06) !important;
+            font-size: 13px !important;
+            word-wrap: break-word !important;
+            white-space: normal !important;
+            max-height: 120px !important;
+            min-height: 100px !important;
+            overflow-y: auto !important;
+        }
+
+        .info-box h5 { 
+            font-size: 13px !important; 
+            margin-bottom: 6px !important; 
+        }
+        
+        .info-box p { 
+            font-size: 12px !important; 
+            margin-bottom: 6px !important; 
+        }
+
+        /* Informações adicionais */
+        .vacancy-card > div > p,
+        .additional-info {
+            position: static !important;
+            margin: 8px 12px !important;
+            padding: 0 !important;
+            text-align: right !important;
+            font-size: 11px !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+        }
+
+        /* Botões */
+        .btn,
+        .filter-btn {
+            margin: 6px 0 !important;
+            height: 44px !important;
+        }
+
+        /* Modal */
+        .modal-dialog-centered { 
+            display: flex; 
+            align-items: center; 
+            min-height: calc(100% - 1rem); 
+        }
+        
+        .modal-content.centered { 
+            max-width: 92%; 
+            width: 100%; 
+        }
+        .botoes{
+            gap: 0 !important;
+        }
     }
 
-    /* Modais */
-    @media (max-width: 768px) {
-        .modal-dialog-centered { min-height: calc(100% - 1rem); }
-        .modal-content.centered { max-width: 92% !important; width: 100% !important; }
-        .modal-body form { max-width: 100% !important; }
-        .modal-footer.centered { flex-direction: column; gap: 10px; }
-    }
 
-  /* Pesquisa: wrapper, input e botão lado a lado */
-  .search-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 760px;
-    gap: 0;
-    flex-wrap: nowrap;
-  }
-  .search-input {
-    flex: 1 1 auto;
-    border-radius: 30px 0 0 30px;
-    border: 1px solid #d9d9d9;
-    padding: 12px 16px;
-    height: 48px;
-    background: #fff;
-  }
-  .search-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5f5f5;
-    border: 1px solid #d9d9d9;
-    border-left: none;
-    border-radius: 0 30px 30px 0;
-    height: 48px;
-    width: 56px;
-    padding: 0;
-    cursor: pointer;
-  }
-  .search-btn i { font-size: 18px; color: #222; }
-
-  /* neutraliza regras antigas que podem forçar quebra */
-  .input-group { display: flex !important; flex-wrap: nowrap !important; align-items: center !important; }
-
-  @media (max-width: 768px) {
-    form.d-flex {
-      flex-direction: column !important;
-      gap: 10px;
-      align-items: stretch !important;
-    }
-    /* mantém input + lupa na mesma linha, faz wrapper ocupar 100% */
-    .search-wrapper { width: 100%; }
-    .search-input { width: 100%; }
-    /* faz o botão de filtro ir para a linha abaixo ocupando toda largura */
-    .filter-btn, .btn.filter-btn { width: 100% !important; height: 45px !important; }
-  }
-
-  /* Ajuste na linha de cards */
-.row {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.col-sm-5 {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-left: 0 !important;  /* remove margem fixa que causa overflow */
-}
-
-
-/* Ajuste para margem entre cards apenas no desktop */
-@media (min-width: 992px) {
-    .col-sm-5 {
-        margin-bottom: 30px;
-        margin-right: 30px;
-    }
-    .col-sm-5:nth-child(2n) {
-        margin-right: 0;
-    }
-}
-
-/* Consolidação de todos os media queries */
-@media (max-width: 991px) {
-    /* Layout e containers */
-    .vacancy-col,
-    .col-sm-5 {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        padding: 0 15px !important;
-        margin: 0 0 18px 0 !important;
-    }
-
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-
-    /* Menu mobile */
-    .menu-links {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0 10px !important;
-        gap: 8px;
-        padding-left: 0;
-        font-size: 0.95rem;
-    }
-
-    .menu-links li a {
-        display: block;
-        padding-bottom: 6px;
-        border-bottom: 1.5px solid #000;
-        width: 100%;
-    }
-
-    .menu-links li.separator {
-        display: none;
-    }
-
-    /* Cards e info-box */
-    .vacancy-card {
-        height: auto !important;
-        min-height: 160px !important;
-        padding: 12px !important;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .info-box {
-        position: static !important;
-        transform: none !important;
-        max-width: 300px !important;
-        min-width: 100px !important;
-        padding: 8px 10px !important;
-        margin: 8px auto !important;
-        border-radius: 8px !important;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.06) !important;
-        font-size: 13px !important;
-        word-wrap: break-word !important;
-        white-space: normal !important;
-        max-height: 120px !important;
-        min-height: 100px !important;
-        overflow-y: auto !important;
-    }
-
-    .info-box h5 { 
-        font-size: 13px !important; 
-        margin-bottom: 6px !important; 
-    }
-    
-    .info-box p { 
-        font-size: 12px !important; 
-        margin-bottom: 6px !important; 
-    }
-
-    /* Informações adicionais */
-    .vacancy-card > div > p,
-    .additional-info {
-        position: static !important;
-        margin: 8px 12px !important;
-        padding: 0 !important;
-        text-align: right !important;
-        font-size: 11px !important;
-        white-space: normal !important;
-        word-break: break-word !important;
-        overflow-wrap: anywhere !important;
-    }
-
-    /* Botões */
-    .btn, 
-    .filter-btn {
-        width: 100% !important;
-        margin: 8px 0 !important;
-        height: 44px !important;
-    }
-
-    /* Modal */
-    .modal-dialog-centered { 
-        display: flex; 
-        align-items: center; 
-        min-height: calc(100% - 1rem); 
-    }
-    
-    .modal-content.centered { 
-        max-width: 92%; 
-        width: 100%; 
-    }
-}
-
-/* Telas muito pequenas */
-@media (max-width: 576px) {
-    .info-box { 
-        width: 100px !important; 
-        padding: 6px 8px !important; 
-    }
-    .info-box h5 { 
-        font-size: 12px !important; 
-    }
-    .additional-info, 
-    .vacancy-card > div > p, 
-    .info-box p { 
-        font-size: 10px !important; 
-    }
-}
 
 /* Desktop apenas */
 @media (min-width: 992px) {
@@ -572,7 +475,7 @@
             @endif
             @foreach($vagas as $vaga)
                 <div class="col-sm-5" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
-                    <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
+                    <div class="vacancy-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
                         <div class="info-box d-flex align-items-start justify-content-start">
                             <h5>
                                 <?php
@@ -593,7 +496,7 @@
                             <p><strong>Requisitos:</strong> {{ $vaga->requisitos }}</p>
                             <p><strong>Atividades:</strong> {{ $vaga->atividades }}</p>
                         </div>
-                        <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;">
+                        <p class="texto">
                             <strong>Informações adicionais</strong><br>
                             <strong>{{ $vaga->empresa }}</strong><br>
                             <strong>Telefone para contato:</strong> {{ $vaga->telefone }}<br>
@@ -608,18 +511,18 @@
                                 Entrar em contato
                             </button>
                         @else
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
+                            <div class="d-flex flex-column gap-2 botoes w-100">
+                                <button class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
                                     Entrar em contato
                                 </button>
-                                <div class="d-flex mt-2 gap-1">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}">
+                                <div class="d-flex gap-1 justify-content-between">
+                                    <button class="btn btn-warning w-50" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}">
                                         <i class="bi bi-pencil-square"></i> Editar
                                     </button>
-                                    <form action="{{ route('vaga.excluir', $vaga->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta vaga?');">
+                                    <form class="w-50" action="{{ route('vaga.excluir', $vaga->id) }}" method="POST" class="flex-grow-1" onsubmit="return confirm('Tem certeza que deseja excluir esta vaga?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">
+                                        <button class="btn btn-danger excluir w-100" type="submit">
                                             <i class="bi bi-trash"></i> Excluir
                                         </button>
                                     </form>
