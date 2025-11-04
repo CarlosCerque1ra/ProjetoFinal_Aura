@@ -567,44 +567,62 @@
             @foreach($vagas as $vaga)
                 <div class="col-sm-5" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
                     <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
-                        <div>
-                            <!-- Alterar esta parte do HTML - remover estilos inline -->
-                            <div class="info-box d-flex align-items-start justify-content-start">
-                                <h5>
+                        <div class="info-box d-flex align-items-start justify-content-start">
+                            <h5>
+                                <?php
+                                    if($vaga->visibilidade==0){
+                                        $visibilidade = 'Vaga não publicada';
+                                    } else {
+                                        $visibilidade = '';
+                                    }
+                                ?>
+                                @if(auth()->check() && auth()->user()->conta=='admin' && $vaga->visibilidade==0)
                                     <i class="bi bi-pin-angle" style="font-size: 25px;"></i>
+                                    {{ $vaga->tipo }} - {{ $vaga->titulo }} - <?php echo htmlspecialchars($visibilidade) ?>
+                                @else
                                     {{ $vaga->tipo }} - {{ $vaga->titulo }}
-                                </h5>
-                                <hr>
-                                <p><strong>Requisitos:</strong> {{ $vaga->requisitos }}</p>
-                                <p><strong>Atividades:</strong> {{ $vaga->atividades }}</p>
-                            </div>
-                            <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;">
-                                <strong>Informações adicionais</strong><br>
-                                <strong>{{ $vaga->empresa }}</strong><br>
-                                <strong>Telefone para contato:</strong> {{ $vaga->telefone }}<br>
-                                <strong>Publicado em:</strong> {{ $vaga->publicacao }}
-                            </p>
+                                @endif
+                            </h5>
+                            <hr>
+                            <p><strong>Requisitos:</strong> {{ $vaga->requisitos }}</p>
+                            <p><strong>Atividades:</strong> {{ $vaga->atividades }}</p>
                         </div>
+                        <p style="font-size: 12px; position: relative; margin-left: 200px; margin-top: 420px;">
+                            <strong>Informações adicionais</strong><br>
+                            <strong>{{ $vaga->empresa }}</strong><br>
+                            <strong>Telefone para contato:</strong> {{ $vaga->telefone }}<br>
+                            <strong>Publicado em:</strong> {{ $vaga->publicacao }}
+                        </p>
                     </div>
-                    @if(auth()->user())
-                        @if(auth()->user()->tipo == 'ALUNO')
-                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">Entrar em contato</button>
+
+                    {{-- Botões de ação --}}
+                    @if(auth()->check())
+                        @if(auth()->user()->tipo == 'aluno')
+                            <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
+                                Entrar em contato
+                            </button>
                         @else
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">Entrar em contato</button>
+                                <button class="btn btn-danger mt-2 ms-2" data-bs-toggle="modal" data-bs-target="#modalTrabalho-{{ $vaga->id }}">
+                                    Entrar em contato
+                                </button>
                                 <div class="d-flex mt-2 gap-1">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}"><i class="bi bi-pencil-square">Editar</i></button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarVaga-{{ $vaga->id }}">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </button>
                                     <form action="{{ route('vaga.excluir', $vaga->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta vaga?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit"><i class="bi bi-trash">Excluir</i></button>
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="bi bi-trash"></i> Excluir
+                                        </button>
                                     </form>
                                 </div>
                             </div>
                         @endif
                     @else
                         <a href="{{ route('login') }}" class="btn btn-danger mt-2 ms-2">Entrar em contato</a>
-                     @endif
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -774,6 +792,14 @@
                             <div class="form-group mb-2 d-flex flex-column">
                                 <label for="beneficios-{{ $vaga->id }}">Benefícios:</label>
                                 <textarea name="beneficios" id="beneficios-{{ $vaga->id }}" class="form-control" rows="3" required>{{ $vaga->beneficios }}</textarea>
+                            </div>
+
+                            <div class="form-group mb-2 d-flex flex-column">
+                                <label for="tipo-{{ $vaga->id }}">Visibilidade:</label>
+                                <select name="visibilidade" id="tipo-{{ $vaga->id }}" class="form-select" required>
+                                    <option value="0" {{ $vaga->visibilidade == 0 ? 'selected' : '' }}>Vaga não publicada</option>
+                                    <option value="1" {{ $vaga->visibilidade == 1 ? 'selected' : '' }}>Vaga publicada</option>
+                                </select>
                             </div>
 
                             <div class="modal-footer">

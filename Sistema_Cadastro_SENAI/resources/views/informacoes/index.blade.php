@@ -389,6 +389,9 @@
               <!-- No formulário do modal, ajustar o input hidden -->
               <input type="hidden" name="publicacao" id="data_hora_cliente">
 
+              <!-- visibilidade -->
+              <input type="hidden" name="visibilidade" id="visibilidade" value="0">
+
 
               <!-- Botões -->
               <div class="modal-footer">

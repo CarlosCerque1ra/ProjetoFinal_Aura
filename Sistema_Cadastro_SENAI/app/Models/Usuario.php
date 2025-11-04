@@ -18,6 +18,7 @@ class Usuario extends Authenticatable
     protected $fillable = [
         'cpf',
         'senha',
+        'tipo',
     ];
 
     protected $hidden = [

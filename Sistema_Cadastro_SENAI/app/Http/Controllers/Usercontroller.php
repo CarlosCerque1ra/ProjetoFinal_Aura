@@ -4,30 +4,47 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
-    {
+    public function index(Request $request){
         $termo = trim($request->input('busca', ''));
-        $checkbox = $request->input('filtro', []); // array de checkboxes
+        $checkbox = $request->input('filtro', []);
 
+        // Pega o usuário logado (se tiver)
+        $user = auth()->user();
+
+        // Começa a query
         $query = DB::table('vagas');
 
-        // Filtro por termo
+        // 🔍 Filtro por termo
         if ($termo) {
-            $query->where(function($q) use ($termo) {
+            $query->where(function ($q) use ($termo) {
                 $q->where('empresa', 'like', "%{$termo}%")
                 ->orWhere('titulo', 'like', "%{$termo}%")
                 ->orWhere('requisitos', 'like', "%{$termo}%");
             });
         }
 
-        // Filtro por checkbox
+        // ✅ Filtro por checkbox
         if (!empty($checkbox)) {
-            $query->whereIn('tipo', $checkbox); // só pega os tipos selecionados
+            $query->whereIn('tipo', $checkbox);
         }
+
+        // 🧠 Pega o tipo do usuário pelo banco (caso o Auth não tenha carregado)
+        if ($user) {
+            $userData = DB::table('users')->where('id', $user->id)->first();
+        } else {
+            $userData = null;
+        }
+
+        // 🔒 Filtragem de visibilidade
+        if (!$userData || $userData->conta !== 'admin') {
+            // Se for aluno ou visitante → só vagas visíveis (visibilidade = 1)
+            $query->where('visibilidade', 1);
+        }
+        // Se for admin → vê tudo (não aplica filtro)
 
         $vagas = $query->orderBy('empresa')->get();
 
@@ -92,6 +109,7 @@ class UserController extends Controller
             'fim_expediente' => 'required|date_format:H:i:s',
             'beneficios' => 'required|string|max:255',
             'publicacao' => 'required|string',
+            'visibilidade' => 'required|in:0,1',
         ], [
             'init_expediente.date_format' => 'O início do expediente deve estar no formato HH:MM:SS.',
             'fim_expediente.date_format' => 'O fim do expediente deve estar no formato HH:MM:SS.',
@@ -123,6 +141,7 @@ class UserController extends Controller
             'fim_expediente' => 'required|date_format:H:i:s',
             'beneficios' => 'required|string|max:255',
             'publicacao' => 'required|string',
+            'visibilidade' => 'required|in:0,1',
         ], [
             'init_expediente.date_format' => 'O início do expediente deve estar no formato HH:MM:SS.',
             'fim_expediente.date_format' => 'O fim do expediente deve estar no formato HH:MM:SS.',
