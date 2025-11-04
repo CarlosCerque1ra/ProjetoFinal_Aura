@@ -46,7 +46,7 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         // Redireciona para a rota desejada (ex: mural)
-        return redirect()->route('pag_init');
+        return redirect()->intended();
     }
 
     /**

@@ -405,6 +405,11 @@
             max-width: 92%; 
             width: 100%; 
         }
+        .modal-title.centered{
+            text-align: center;
+            font-size: 1rem !important;
+            margin-bottom: ;
+        }
         .botoes{
             gap: 0 !important;
         }
