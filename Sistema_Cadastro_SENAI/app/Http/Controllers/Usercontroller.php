@@ -112,6 +112,7 @@ class UserController extends Controller
             <p>Ele/ela atua na área de {$validated['atuacao']}, por favor, o/a considere para a vaga, obrigado!</p>
             <p>Telefone de contato: {$validated['telefone']}</p>
             <p>E-mail de contato: {$validated['email']}</p>
+            <p>Curriculo anexado abaixo!</p>
         ";
 
         // 6️⃣ Envio de e-mail para o responsável pela vaga
