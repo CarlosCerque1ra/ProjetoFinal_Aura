@@ -564,6 +564,12 @@
         <!-- cards de vagas -->
         <?php $mensagem = ''; ?>
         <div class="row justify-content-center">
+            <?php $mensagem = ''; ?>
+            @if(session('mensagem'))
+              <div class="alert {{ session('tipo') }}">
+                {{ session('mensagem') }}
+              </div>
+            @endif
             @foreach($vagas as $vaga)
                 <div class="col-sm-5" style="background-color: #d9d9d9; padding: 10px; border-radius: 7px;">
                     <div class="vacancy-card tamanho-card" style="background-image: url('{{ asset('img/fundo_card.jpg') }}');">
