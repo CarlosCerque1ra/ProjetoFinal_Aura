@@ -506,6 +506,7 @@
                             <strong>{{ $vaga->empresa }}</strong><br>
                             <strong>Telefone para contato:</strong> {{ $vaga->telefone }}<br>
                             <strong>Publicado em:</strong> {{ $vaga->publicacao }}
+                            <input type="hidden" value="{{ $vaga->responsavel }}">
                         </p>
                     </div>
 
@@ -585,6 +586,8 @@
                                 </div>
                                 <input type="hidden" name="id_aluno" value="{{ auth()->id() }}">
                                 <input type="hidden" name="id_vaga" value="{{ $vaga->id ?? 0 }}">
+                                <input type="hidden" name="email_vaga" value="{{ $vaga->email ?? '' }}">
+                                <input type="hidden" name="responsavel" value="{{ $vaga->responsavel ?? '' }}">
                                 <div class="modal-footer centered">
                                     <button type="submit" class="btn btn-danger">Enviar dados</button>
                                 </div>
