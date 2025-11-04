@@ -38,3 +38,8 @@ Route::put('/vaga/{id}', [UserController::class, 'atualizarVaga'])->name('vaga.a
 // Excluir vaga (DELETE)
 Route::delete('/vaga/{id}', [UserController::class, 'excluirVaga'])->name('vaga.excluir');
 
+Route::get('/google/redirect', [GoogleController::class, 'redirectToGoogle']);
+Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
+
