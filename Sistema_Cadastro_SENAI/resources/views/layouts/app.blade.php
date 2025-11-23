@@ -360,7 +360,7 @@
                     <li class="mobile-menu-item login-mobile">
                         <i class="bi bi-person" style="font-size:1.5rem; color: white;"></i>
                         @if(auth()->user())
-                            <a href="{{ route('pag_init') }}" class="nav-link">{{ auth()->user()->nome }}</a>
+                            <a href="{{ route('area_aluno') }}" class="nav-link">{{ auth()->user()->nome }}</a>
                         @else
                             <a href="{{ route('login') }}" class="nav-link">SOU ALUNO</a>
                         @endif

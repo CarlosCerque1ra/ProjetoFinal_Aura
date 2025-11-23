@@ -17,17 +17,16 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/cadastrar',[UserController::class,'cadastrar'])->name('cadastrar');
 
-// Página inicial / mural
-Route::get('/mural', [UserController::class, 'index'])->name('mural.index');
+
+
 
 // Página inicial personalizada
 Route::get('/pag_init', [UserController::class, 'pagInit'])->name('pag_init');
 
-// Documento de estágio
-Route::get('/documento_estagio', [UserController::class, 'documento_estagio'])->name('documento_estagio.index');
+// area do aluno
+Route::get('/area_aluno', [UserController::class, 'areaAluno'])->name('area_aluno');
 
-// Informações
-Route::get('/informacoes', [UserController::class, 'informacoes'])->name('informacoes.index');
+
 
 // Cadastrar vaga
 Route::post('/vaga', [UserController::class, 'vaga'])->name('vaga');

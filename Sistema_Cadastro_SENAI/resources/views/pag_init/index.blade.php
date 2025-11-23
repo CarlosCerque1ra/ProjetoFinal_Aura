@@ -18,6 +18,9 @@
                     <a href="#" class="list-group-item list-group-item-action btn-init"><li>Informações ao alunos</li></a>
                     <a href="#" class="list-group-item list-group-item-action btn-init"><li>Horário de atendimento</li></a>
                     <a href="{{ route('mural.index') }}" class="list-group-item list-group-item-action btn-init"><li>Procurar vagas</li></a>
+                    @if(auth()->user())
+                        <a href="{{ route('area_aluno') }}" class="list-group-item list-group-item-action btn-init"><li>área do aluno</li></a>
+                    @endif
                 </ul>
             </div>
             <div class="me-5" style="height: 30vh;"> <!-- Esconde em mobile -->

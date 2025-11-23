@@ -69,7 +69,9 @@ class UserController extends Controller
         return view('pag_init.index'); // ou qualquer view
     }
 
+
     public function cadastrar(Request $request){
+
         // 1️⃣ Validação dos dados
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
@@ -105,26 +107,7 @@ class UserController extends Controller
             'curriculo' => isset($validated['curriculo']) ? $validated['curriculo'] : null,  // Se o currículo foi enviado
         ]);
 
-        // 5️⃣ Montar a mensagem do e-mail
-        $mensagem = "
-            <h2>Olá, {$responsavel}!</h2>
-            <p>Temos um candidato para a sua vaga, o/a candidato(a) {$validated['nome']}.</p>
-            <p>Ele/ela atua na área de {$validated['atuacao']}, por favor, o/a considere para a vaga, obrigado!</p>
-            <p>Telefone de contato: {$validated['telefone']}</p>
-            <p>E-mail de contato: {$validated['email']}</p>
-            <p>Curriculo anexado abaixo!</p>
-        ";
-
-        // 6️⃣ Envio de e-mail para o responsável pela vaga
-        Mail::html($mensagem, function ($message) use ($emailVaga, $validated) {
-            $message->to($emailVaga)  // E-mail do responsável pela vaga
-                    ->subject('Confirmação de Cadastro - Novo Candidato');
-
-            // Se o candidato enviou um currículo, anexa o arquivo
-            if (!empty($validated['curriculo'])) {
-                $message->attach(storage_path('app/public/' . $validated['curriculo']));
-            }
-        });
+       
 
         // 7️⃣ Retorna mensagem para o usuário
         return redirect()->back()->with([
@@ -204,4 +187,23 @@ class UserController extends Controller
             'tipo' => 'alert-success'
         ]);
     }
+
+    // Área do aluno / mural com as vagas em que o aluno se inscreveu
+	public function areaAluno(){
+        // pega aluno logado
+        $user = auth()->user();
+
+        $alunoId = $user->id;
+
+        // busca inscrições do aluno junto com os dados da vaga
+        $inscricoes = DB::table('inscritos')
+            ->join('vagas', 'inscritos.id_vaga', '=', 'vagas.id')
+            ->where('inscritos.id_aluno', $alunoId)
+            ->select('vagas.*', 'inscritos.curriculo as curriculo_inscrito', 'inscritos.id as inscricao_id')
+            ->get();
+
+        // retorna a view correta dentro da pasta area_aluno
+        return view('area_aluno.index', compact('inscricoes'));
+    }
+
 }
