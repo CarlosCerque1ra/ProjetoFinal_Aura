@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
   <title>Aura Tech</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,111 +11,190 @@
 </head>
 <body class="dark-mode">
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
-
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="assets/logo.png" alt="Aura Logo" height="35" class="me-2">
-      <span class="fw-bold">aura</span>
-    </a>
-
-    <!-- Links -->
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav gap-4">
-        <li class="nav-item"><a class="nav-link" href="#sobre">SOBRE NÓS</a></li> 
-        <li class="nav-item"><a class="nav-link" href="#servicos">SERVIÇOS</a></li> 
-        <li class="nav-item"><a class="nav-link" href="#contatos">CONTATOS</a></li>
-      </ul>
-    </div>
-
-    <!-- Botão Dark/Light Mode -->
-    <div class="d-flex align-items-center">
-      <button id="themeToggle" class="theme-switch"></button>
-    </div>
-
-  </div>
-</nav>
-
-
-<!-- Seção Sobre Nós -->
-<section id="sobre" class="sobre-section d-flex align-items-center text-center">
-  <div class="container glass-box">
-    <h1 class="display-4 fw-bold">SOBRE NÓS</h1>
-  <button type="button" class="btn btn-glass" data-bs-toggle="modal" data-bs-target="#sobreModal">Saiba Mais</button>
-  </div>
-</section>
-
-<!-- Modal Saiba Mais -->
-<div class="modal fade" id="sobreModal" tabindex="-1" aria-labelledby="sobreModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content glass-box">
-      <div class="modal-header border-0">
-        <h5 class="modal-title w-100 text-center" id="sobreModalLabel">SOBRE NÓS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body text-center">
-        <p>A Aura Tech é uma empresa focada em soluções inovadoras, tecnologia e transformação digital. Nosso objetivo é conectar pessoas e negócios através de projetos personalizados e eficientes.</p>
-      </div>
-      <div class="modal-footer border-0 justify-content-center">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="logo-icon"><img src="assets/logo.png" alt=""></div>
+        <span class="ms-2">aura</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-3">
+          <li class="nav-item"><a class="nav-link" href="#sobre">SOBRE NÓS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">PROJETOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contatos">CONTATOS</a></li>
+          <li class="nav-item">
+            <button id="themeToggle" class="btn btn-toggle-theme ms-2">🌙</button>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-</div>
+  </nav>
 
-  <!-- Serviços -->
-  <section id="servicos" class="py-5 text-center mb-5">
-    <div class="container">
-      <h2 id="h2" class="mb-5">SERVIÇOS</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card service-card">
-            <img src="assets/servhub.png" class="card-img-top" alt="Projeto Social">
-            <div class="card-body">
-              <h5 class="card-title">ServHub</h5>
-              <p class="card-text">Sistema de Cadastro.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card service-card">
-            <img src="assets/services-bg.png" class="card-img-top" alt="Mural de Vagas">
-            <div class="card-body">
-              <h5 class="card-title">Mural de Vagas</h5>
-              <p class="card-text">Projeto em parceria com o SENAI.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card service-card">
-            <img src="assets/orofacial.png" class="card-img-top" alt="Servhuem">
-            <div class="card-body">
-              <h5 class="card-title">Sistema de horários</h5>
-              <p class="card-text">Para uma marca já existente.</p>
-            </div>
-          </div>
+  <!-- Hero Section -->
+  <section id="sobre" class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">SOBRE NÓS</h1>
+      <button type="button" class="btn btn-saiba-mais" data-bs-toggle="modal" data-bs-target="#modalSobreNos">SAIBA MAIS</button>
+    </div>
+  </section>
+
+  <!-- Modal Sobre Nós -->
+  <div class="modal fade" id="modalSobreNos" tabindex="-1" aria-labelledby="modalSobreNosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-enhanced">
+      <div class="modal-content modal-custom modal-enhanced-content">
+        <!-- Decoração de fundo -->
+        <div class="modal-decoration modal-decoration-1"></div>
+        <div class="modal-decoration modal-decoration-2"></div>
+        
+        <div class="modal-header modal-header-custom modal-header-enhanced">
+          <h5 class="modal-title modal-title-enhanced" id="modalSobreNosLabel">SOBRE NOSSA MARCA</h5>
+          <button type="button" class="btn-close btn-close-enhanced" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
+        <div class="modal-body modal-body-custom modal-body-enhanced">
+          <div class="modal-content-wrapper modal-content-enhanced">
+            <!-- Imagem -->
+            <div class="modal-image-container modal-image-enhanced">
+              <div class="image-wrapper-enhanced">
+                <img src="assets/aura.png" alt="Imagem da Marca" class="modal-image modal-image-styled">
+              </div>
+            </div>
+            
+            <!-- Parágrafo -->
+            <div class="modal-text-wrapper">
+              <p class="modal-paragraph modal-paragraph-enhanced">
+                A Aura é uma marca de tecnologia focada em criar soluções digitais modernas, acessíveis e eficientes, conectando pessoas e empresas por meio de inovação, design e desenvolvimento inteligente.
+              </p>
+            </div>
+          </div>
+          <!-- Área dos criadores -->
+          <div class="modal-creators-area" style="margin-top:2.5rem;">
+            <h6 class="text-center mb-3" style="font-weight:700;letter-spacing:1px;">Criadores da Marca</h6>
+            <div class="creators-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem 1.2rem;justify-items:center;">
+              <div class="creator-item">
+                <!-- <img src="assets/creator1.jpg" alt="Criador 1" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Carlos Aguiar</div>
+              </div>
+              <div class="creator-item">
+                <!-- <img src="assets/creator2.jpg" alt="Criador 2" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Gabriel Ortolani</div>
+              </div>
+              <div class="creator-item">
+                <!-- <img src="assets/creator3.jpg" alt="Criador 3" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Gustavo Rodrigues</div>
+              </div>
+              <div class="creator-item">
+                <!-- <img src="assets/creator4.jpg" alt="Criador 4" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Isabelle Pacheco</div>
+              </div>
+              <div class="creator-item">
+                <!-- <img src="assets/creator5.jpg" alt="Criador 5" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Miguel Mernick</div>
+              </div>
+              <div class="creator-item">
+                <!-- <img src="assets/creator6.jpg" alt="Criador 6" class="creator-img" style="width:70px;height:70px;object-fit:cover;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.10);"> -->
+                <div class="creator-name" style="font-size:0.95rem;text-align:center;margin-top:0.5rem;">Stefany Lino</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Serviços -->
+  <section id="servicos" class="servicos-section py-5">
+    <div class="container-fluid px-4">
+      <h2 class="section-title text-center mb-5">PROJETOS</h2>
+      <div class="servicos-grid">
+        <!-- Card 1 -->
+        <div class="servico-card-container">
+          <div class="servico-card">
+            <div class="servico-image">
+              <img src="assets/studio.png" alt="Projeto de Parceria">
+            </div>
+            <div class="servico-content">
+              <h3 class="servico-title">PARCERIA<br>COM MARCA</h3>
+              <p class="servico-subtitle">Venda de protótipo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="servico-card-container">
+          <div class="servico-card">
+            <div class="servico-image">
+              <img src="assets/senai.jpg" alt="Mural de Vagas">
+            </div>
+            <div class="servico-content">
+              <h3 class="servico-title">MURAL DE<br>VAGAS</h3>
+              <p class="servico-subtitle">PARA A EMPRESA SENAI<br>Projeto com parceria.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="servico-card-container">
+          <div class="servico-card">
+            <div class="servico-image">
+              <img src="assets/servhub.png" alt="Servhub">
+            </div>
+            <div class="servico-content">
+              <h3 class="servico-title">SERVHUB<br></h3>
+              <p class="servico-subtitle">SISTEMA DE ALUGUEL DE SERVIÇOS<br>Projeto acadêmico.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-
-
   <!-- Contatos -->
-  <section id="contatos" class="py-5 bg-dark text-light">
-    <div class="container text-center">
-      <h2 class="mb-5">CONTATOS</h2>
-      <p><strong>Email:</strong> auratech@gmail.com</p>
-      <p><strong>Telefone:</strong> 4002-8922</p>
-      <p><strong>Instagram:</strong> @auratech</p>
+  <section id="contatos" class="contatos-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">CONTATOS</h2>
+      <div class="contatos-grid">
+        <!-- Imagem -->
+        <div class="contatos-image">
+          <img src="assets/hero-bg.jpg" alt="Contatos">
+        </div>
+        <!-- Informações -->
+        <div class="contatos-info">
+          <div class="info-block">
+            <p class="info-label">EMAIL:</p>
+            <p class="info-value">AURATECH@GMAIL.COM</p>
+          </div>
+          <div class="info-block">
+            <p class="info-label">TELEFONE:</p>
+            <p class="info-value">4002-8922</p>
+          </div>
+          <div class="info-block">
+            <p class="info-label">INSTAGRAM</p>
+            <p class="info-value">@AURATECH</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black text-center text-light py-3">
-    <p>&copy; 2025 Aura Tech. Todos os direitos reservados.</p>
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="footer-content d-flex justify-content-between align-items-center px-4">
+        <div class="footer-nav d-flex gap-4">
+          <a href="#sobre" class="footer-link">SOBRE NÓS</a>
+          <a href="#servicos" class="footer-link">PROJETOS</a>
+          <a href="#contatos" class="footer-link">CONTATOS</a>
+        </div>
+        <div class="logo-icon"><img src="assets/logo.png" alt=""></div>
+        <div class="footer-copyright">
+          <p>&copy; 2025 Aura Tech. Todos os direitos reservados</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
